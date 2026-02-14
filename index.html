@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lift Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Lift Tracker</h1>
+    <button id="auth-btn" class="auth-btn">Sign In</button>
+  </header>
+
+  <!-- Main content (hidden until signed in) -->
+  <main id="app" class="hidden">
+    <!-- Session tabs (shown when SESSIONS is configured) -->
+    <section id="session-selector" class="session-selector hidden">
+      <div id="session-tabs" class="session-tabs"></div>
+      <div id="recent-sessions" class="recent-sessions"></div>
+    </section>
+
+    <!-- Session overview (shown when SESSIONS is configured) -->
+    <section id="session-overview" class="session-overview hidden"></section>
+
+    <!-- Fallback: plain lift dropdown (shown when no SESSIONS) -->
+    <section id="dropdown-mode" class="lift-selector hidden">
+      <label for="lift-select">Select Lift</label>
+      <select id="lift-select">
+        <option value="">— Choose a lift —</option>
+      </select>
+    </section>
+
+    <!-- Lift detail: cues, history, log form -->
+    <div id="lift-detail" class="hidden">
+      <section class="cues-panel">
+        <h2 id="lift-detail-name"></h2>
+        <p id="cues-text"></p>
+      </section>
+
+      <section id="history-panel" class="history-panel">
+        <h2>Recent History</h2>
+        <div id="history-list"></div>
+      </section>
+
+      <section class="log-form">
+        <h2>Log Sets</h2>
+        <div id="set-groups"></div>
+        <button id="add-group-btn" class="btn btn-secondary" type="button">+ Add Group</button>
+        <label for="notes">Notes</label>
+        <textarea id="notes" rows="2" placeholder="Optional notes..."></textarea>
+        <button id="save-btn" class="btn btn-primary" type="button">Save</button>
+      </section>
+    </div>
+  </main>
+
+  <!-- Signed-out message -->
+  <div id="signed-out-msg" class="signed-out-msg">
+    <p>Sign in with Google to start tracking your lifts.</p>
+  </div>
+
+  <!-- Firebase SDKs (compat for simpler global usage) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- App scripts -->
+  <script src="lifts.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>

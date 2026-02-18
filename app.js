@@ -251,20 +251,23 @@ async function selectLift(liftId, rx) {
   cuesText.textContent = lift.cues;
   liftDetail.classList.remove('hidden');
 
-  // Reset form and auto-fill sets/reps from rx
   resetSetGroups();
-  const parsed = parseRx(rx);
-  if (parsed) {
-    const row = setGroups.querySelector('.set-group-row');
-    row.querySelector('.input-sets').value = parsed.maxSets;
-    row.querySelector('.input-reps').value = parsed.maxReps;
-  }
 
   // Load history only when signed in
   if (currentUser) {
     await loadHistory(liftId);
   } else {
     historyList.innerHTML = '';
+  }
+
+  // Fallback: if no history pre-filled the form, use rx for sets/reps
+  const firstRow = setGroups.querySelector('.set-group-row');
+  if (firstRow && !firstRow.querySelector('.input-sets').value) {
+    const parsed = parseRx(rx);
+    if (parsed) {
+      firstRow.querySelector('.input-sets').value = parsed.maxSets;
+      firstRow.querySelector('.input-reps').value = parsed.maxReps;
+    }
   }
 
   liftDetail.scrollIntoView({ behavior: 'smooth' });
@@ -414,13 +417,13 @@ saveBtn.addEventListener('click', async () => {
     resetSetGroups();
     await loadHistory(currentLiftId);
 
-    // Re-apply auto-fill from rx
-    if (currentRx) {
+    // Fallback: if no history, pre-fill sets/reps from rx
+    const firstRow = setGroups.querySelector('.set-group-row');
+    if (firstRow && !firstRow.querySelector('.input-sets').value && currentRx) {
       const parsed = parseRx(currentRx);
       if (parsed) {
-        const row = setGroups.querySelector('.set-group-row');
-        row.querySelector('.input-sets').value = parsed.maxSets;
-        row.querySelector('.input-reps').value = parsed.maxReps;
+        firstRow.querySelector('.input-sets').value = parsed.maxSets;
+        firstRow.querySelector('.input-reps').value = parsed.maxReps;
       }
     }
   } catch (err) {
@@ -452,7 +455,7 @@ async function loadHistory(liftId) {
     }
 
     historyList.innerHTML = '';
-    let lastWeight = null;
+    let lastSets = null;
 
     snapshot.forEach((doc) => {
       const data = doc.data();
@@ -466,9 +469,9 @@ async function loadHistory(liftId) {
 
       const setsStr = data.sets.map((g) => `${g.sets}\u00d7${g.reps}@${g.weight}`).join(', ');
 
-      // Grab weight from most recent entry for auto-fill
-      if (lastWeight === null && data.sets.length > 0) {
-        lastWeight = data.sets[0].weight;
+      // Grab most recent entry for auto-fill
+      if (lastSets === null) {
+        lastSets = data.sets;
       }
 
       entry.innerHTML = `
@@ -487,15 +490,16 @@ async function loadHistory(liftId) {
       historyList.appendChild(entry);
     });
 
-    // Auto-fill weight from last session
-    if (lastWeight !== null) {
-      const firstRow = setGroups.querySelector('.set-group-row');
-      if (firstRow) {
-        const weightInput = firstRow.querySelector('.input-weight');
-        if (!weightInput.value) {
-          weightInput.value = lastWeight;
-        }
-      }
+    // Pre-fill form from most recent entry (sets, reps, and weight)
+    if (lastSets !== null) {
+      setGroups.innerHTML = '';
+      lastSets.forEach((g) => {
+        const row = createSetGroupRow();
+        row.querySelector('.input-sets').value = g.sets;
+        row.querySelector('.input-reps').value = g.reps;
+        row.querySelector('.input-weight').value = g.weight;
+        setGroups.appendChild(row);
+      });
     }
   } catch (err) {
     console.error('History load error:', err);
@@ -523,18 +527,20 @@ function startEdit(docId, data) {
   document.querySelector('.log-form').scrollIntoView({ behavior: 'smooth' });
 }
 
-cancelEditBtn.addEventListener('click', () => {
+cancelEditBtn.addEventListener('click', async () => {
   editingEntryId = null;
   saveBtn.textContent = 'Save';
   cancelEditBtn.classList.add('hidden');
   document.getElementById('edit-mode-banner').classList.add('hidden');
   resetSetGroups();
-  if (currentRx) {
+  await loadHistory(currentLiftId);
+  // Fallback: if no history, pre-fill sets/reps from rx
+  const firstRow = setGroups.querySelector('.set-group-row');
+  if (firstRow && !firstRow.querySelector('.input-sets').value && currentRx) {
     const parsed = parseRx(currentRx);
     if (parsed) {
-      const row = setGroups.querySelector('.set-group-row');
-      row.querySelector('.input-sets').value = parsed.maxSets;
-      row.querySelector('.input-reps').value = parsed.maxReps;
+      firstRow.querySelector('.input-sets').value = parsed.maxSets;
+      firstRow.querySelector('.input-reps').value = parsed.maxReps;
     }
   }
 });

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lift-tracker-v3';
+const CACHE_NAME = 'lift-tracker-v4';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -29,7 +29,8 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch: cache-first for static assets, network-first for everything else
+// Fetch: network-first for app files (so updates are instant),
+// cache-first for icons (they never change).
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
@@ -41,9 +42,22 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Cache-first for icons
+  if (url.pathname.includes('/icons/')) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => cached || fetch(event.request))
+    );
+    return;
+  }
+
+  // Network-first for everything else; fall back to cache when offline
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });

@@ -478,12 +478,16 @@ async function loadHistory(liftId) {
       entry.innerHTML = `
         <div class="history-header">
           <div class="history-date">${dateStr}</div>
-          <button class="btn-edit-entry" type="button">Edit</button>
+          <div class="history-actions">
+            <button class="btn-edit-entry" type="button">Edit</button>
+            <button class="btn-delete-entry" type="button">Delete</button>
+          </div>
         </div>
         <div class="history-sets">${setsStr}</div>
         ${data.notes ? `<div class="history-notes">${escapeHtml(data.notes)}</div>` : ''}
       `;
       entry.querySelector('.btn-edit-entry').addEventListener('click', () => startEdit(doc.id, data));
+      entry.querySelector('.btn-delete-entry').addEventListener('click', () => deleteEntry(doc.id, liftId));
       historyList.appendChild(entry);
     });
 
@@ -538,6 +542,28 @@ cancelEditBtn.addEventListener('click', () => {
     }
   }
 });
+
+// --- Delete entry ---
+async function deleteEntry(docId, liftId) {
+  if (!confirm('Delete this entry?')) return;
+
+  try {
+    await db.collection('users').doc(currentUser.uid)
+      .collection('entries').doc(docId).delete();
+
+    await loadHistory(liftId);
+    await loadTodayEntries();
+    if (useSessionMode) {
+      renderSessionOverview(SESSIONS[currentSessionIndex]);
+      document.querySelectorAll('.session-lift').forEach((el) => {
+        el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
+      });
+    }
+  } catch (err) {
+    console.error('Delete error:', err);
+    alert('Failed to delete. Please try again.');
+  }
+}
 
 // --- View-only mode (no auth) ---
 function initViewOnly() {

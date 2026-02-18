@@ -145,7 +145,13 @@ select {
   color: var(--text-muted);
 }
 
-.btn-edit-entry {
+.history-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn-edit-entry,
+.btn-delete-entry {
   background: none;
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -156,11 +162,13 @@ select {
   line-height: 1.4;
 }
 
-.btn-edit-entry:active {
+.btn-edit-entry:active,
+.btn-delete-entry:active {
   background: var(--border);
 }
 
-body.view-only .btn-edit-entry {
+body.view-only .btn-edit-entry,
+body.view-only .btn-delete-entry {
   display: none;
 }
 

@@ -126,27 +126,23 @@ async function loadRecentSessions() {
       }
     });
 
-    if (seen.size === 0) return;
-
     const now = new Date();
-    // Show in chronological order (most recent first), up to 3
-    const entries = [...seen.entries()].slice(0, 3);
+    const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    entries.forEach(([sessionId, date]) => {
-      const session = SESSIONS.find((s) => s.id === sessionId);
-      if (!session) return;
-
-      const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const dateMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-      const diffDays = Math.round((nowMidnight - dateMidnight) / (1000 * 60 * 60 * 24));
-      let agoStr;
-      if (diffDays === 0) agoStr = 'today';
-      else if (diffDays === 1) agoStr = '1 day ago';
-      else agoStr = `${diffDays} days ago`;
-
+    // Render one label per session in tab order so they align under the buttons
+    SESSIONS.forEach((session) => {
       const item = document.createElement('div');
       item.className = 'recent-session-item';
-      item.innerHTML = `<span class="recent-session-name">${escapeHtml(session.name)}</span> <span class="recent-session-ago">${agoStr}</span>`;
+
+      const date = seen.get(session.id);
+      if (date) {
+        const dateMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        const diffDays = Math.round((nowMidnight - dateMidnight) / (1000 * 60 * 60 * 24));
+        if (diffDays === 0) item.textContent = 'today';
+        else if (diffDays === 1) item.textContent = '1d ago';
+        else item.textContent = `${diffDays}d ago`;
+      }
+
       recentEl.appendChild(item);
     });
   } catch (err) {

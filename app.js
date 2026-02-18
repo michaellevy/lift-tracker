@@ -15,8 +15,10 @@ const setGroups = document.getElementById('set-groups');
 const addGroupBtn = document.getElementById('add-group-btn');
 const notesInput = document.getElementById('notes');
 const saveBtn = document.getElementById('save-btn');
+const cancelEditBtn = document.getElementById('cancel-edit-btn');
 
 let currentUser = null;
+let editingEntryId = null;
 let currentSessionIndex = 0;
 let currentLiftId = null;
 let currentRx = null;
@@ -42,12 +44,15 @@ auth.onAuthStateChanged((user) => {
     authBtn.textContent = 'Sign Out';
     appEl.classList.remove('hidden');
     signedOutMsg.classList.add('hidden');
+    document.body.classList.remove('view-only');
     initApp();
   } else {
     authBtn.textContent = 'Sign In';
-    appEl.classList.add('hidden');
-    signedOutMsg.classList.remove('hidden');
+    appEl.classList.remove('hidden');
+    signedOutMsg.classList.add('hidden');
+    document.body.classList.add('view-only');
     resetAll();
+    initViewOnly();
   }
 });
 
@@ -80,7 +85,7 @@ async function determineCurrentSession() {
     if (snapshot.empty) return 0;
 
     const data = snapshot.docs[0].data();
-    const lastDate = data.date ? data.date.toDate() : null;
+    const lastDate = data.date ? data.date.toDate() : new Date();
     const lastSessionId = data.session;
 
     if (!lastSessionId) return 0;
@@ -131,8 +136,9 @@ async function loadRecentSessions() {
       const session = SESSIONS.find((s) => s.id === sessionId);
       if (!session) return;
 
-      const diffMs = now - date;
-      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const dateMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      const diffDays = Math.round((nowMidnight - dateMidnight) / (1000 * 60 * 60 * 24));
       let agoStr;
       if (diffDays === 0) agoStr = 'today';
       else if (diffDays === 1) agoStr = '1 day ago';
@@ -258,8 +264,12 @@ async function selectLift(liftId, rx) {
     row.querySelector('.input-reps').value = parsed.maxReps;
   }
 
-  // Load history, then auto-fill weight from most recent entry
-  await loadHistory(liftId);
+  // Load history only when signed in
+  if (currentUser) {
+    await loadHistory(liftId);
+  } else {
+    historyList.innerHTML = '';
+  }
 
   liftDetail.scrollIntoView({ behavior: 'smooth' });
 }
@@ -366,33 +376,43 @@ saveBtn.addEventListener('click', async () => {
   }
 
   saveBtn.disabled = true;
-  saveBtn.textContent = 'Saving...';
+  saveBtn.textContent = editingEntryId ? 'Updating...' : 'Saving...';
 
   try {
-    const entry = {
-      lift: currentLiftId,
-      date: firebase.firestore.FieldValue.serverTimestamp(),
-      sets: groups,
-      notes: notesInput.value.trim()
-    };
+    if (editingEntryId) {
+      await db.collection('users').doc(currentUser.uid)
+        .collection('entries').doc(editingEntryId)
+        .update({ sets: groups, notes: notesInput.value.trim() });
 
-    // Tag with session ID for auto-rotate
-    if (useSessionMode) {
-      entry.session = SESSIONS[currentSessionIndex].id;
-    }
+      editingEntryId = null;
+      cancelEditBtn.classList.add('hidden');
+      document.getElementById('edit-mode-banner').classList.add('hidden');
+    } else {
+      const entry = {
+        lift: currentLiftId,
+        date: firebase.firestore.FieldValue.serverTimestamp(),
+        sets: groups,
+        notes: notesInput.value.trim()
+      };
 
-    await db.collection('users').doc(currentUser.uid)
-      .collection('entries').add(entry);
+      // Tag with session ID for auto-rotate
+      if (useSessionMode) {
+        entry.session = SESSIONS[currentSessionIndex].id;
+      }
 
-    // Update completion status
-    todayEntries.add(currentLiftId);
+      await db.collection('users').doc(currentUser.uid)
+        .collection('entries').add(entry);
 
-    if (useSessionMode) {
-      renderSessionOverview(SESSIONS[currentSessionIndex]);
-      // Re-highlight current lift
-      document.querySelectorAll('.session-lift').forEach((el) => {
-        el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
-      });
+      // Update completion status
+      todayEntries.add(currentLiftId);
+
+      if (useSessionMode) {
+        renderSessionOverview(SESSIONS[currentSessionIndex]);
+        // Re-highlight current lift
+        document.querySelectorAll('.session-lift').forEach((el) => {
+          el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
+        });
+      }
     }
 
     resetSetGroups();
@@ -412,7 +432,7 @@ saveBtn.addEventListener('click', async () => {
     alert('Failed to save. Please try again.');
   } finally {
     saveBtn.disabled = false;
-    saveBtn.textContent = 'Save';
+    saveBtn.textContent = editingEntryId ? 'Update' : 'Save';
   }
 });
 
@@ -438,7 +458,7 @@ async function loadHistory(liftId) {
     historyList.innerHTML = '';
     let lastWeight = null;
 
-    snapshot.forEach((doc, index) => {
+    snapshot.forEach((doc) => {
       const data = doc.data();
       const entry = document.createElement('div');
       entry.className = 'history-entry';
@@ -456,10 +476,14 @@ async function loadHistory(liftId) {
       }
 
       entry.innerHTML = `
-        <div class="history-date">${dateStr}</div>
+        <div class="history-header">
+          <div class="history-date">${dateStr}</div>
+          <button class="btn-edit-entry" type="button">Edit</button>
+        </div>
         <div class="history-sets">${setsStr}</div>
         ${data.notes ? `<div class="history-notes">${escapeHtml(data.notes)}</div>` : ''}
       `;
+      entry.querySelector('.btn-edit-entry').addEventListener('click', () => startEdit(doc.id, data));
       historyList.appendChild(entry);
     });
 
@@ -476,6 +500,59 @@ async function loadHistory(liftId) {
   } catch (err) {
     console.error('History load error:', err);
     historyList.innerHTML = '<p class="empty">Failed to load history.</p>';
+  }
+}
+
+// --- Edit entry ---
+function startEdit(docId, data) {
+  editingEntryId = docId;
+
+  setGroups.innerHTML = '';
+  data.sets.forEach((g) => {
+    const row = createSetGroupRow();
+    row.querySelector('.input-sets').value = g.sets;
+    row.querySelector('.input-reps').value = g.reps;
+    row.querySelector('.input-weight').value = g.weight;
+    setGroups.appendChild(row);
+  });
+  notesInput.value = data.notes || '';
+
+  saveBtn.textContent = 'Update';
+  cancelEditBtn.classList.remove('hidden');
+  document.getElementById('edit-mode-banner').classList.remove('hidden');
+  document.querySelector('.log-form').scrollIntoView({ behavior: 'smooth' });
+}
+
+cancelEditBtn.addEventListener('click', () => {
+  editingEntryId = null;
+  saveBtn.textContent = 'Save';
+  cancelEditBtn.classList.add('hidden');
+  document.getElementById('edit-mode-banner').classList.add('hidden');
+  resetSetGroups();
+  if (currentRx) {
+    const parsed = parseRx(currentRx);
+    if (parsed) {
+      const row = setGroups.querySelector('.set-group-row');
+      row.querySelector('.input-sets').value = parsed.maxSets;
+      row.querySelector('.input-reps').value = parsed.maxReps;
+    }
+  }
+});
+
+// --- View-only mode (no auth) ---
+function initViewOnly() {
+  if (useSessionMode) {
+    sessionSelector.classList.remove('hidden');
+    dropdownMode.classList.add('hidden');
+    currentSessionIndex = 0;
+    renderSessionTabs();
+    sessionOverview.classList.remove('hidden');
+    renderSessionOverview(SESSIONS[0]);
+  } else {
+    sessionSelector.classList.add('hidden');
+    sessionOverview.classList.add('hidden');
+    dropdownMode.classList.remove('hidden');
+    populateDropdown();
   }
 }
 

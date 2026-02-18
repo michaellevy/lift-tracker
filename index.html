@@ -52,17 +52,19 @@
 
       <section class="log-form">
         <h2>Log Sets</h2>
+        <div id="edit-mode-banner" class="edit-mode-banner hidden">Editing previous entry</div>
         <div id="set-groups"></div>
         <button id="add-group-btn" class="btn btn-secondary" type="button">+ Add Group</button>
         <label for="notes">Notes</label>
         <textarea id="notes" rows="2" placeholder="Optional notes..."></textarea>
         <button id="save-btn" class="btn btn-primary" type="button">Save</button>
+        <button id="cancel-edit-btn" class="btn btn-secondary hidden" type="button">Cancel Edit</button>
       </section>
     </div>
   </main>
 
   <!-- Signed-out message -->
-  <div id="signed-out-msg" class="signed-out-msg">
+  <div id="signed-out-msg" class="signed-out-msg hidden">
     <p>Sign in with Google to start tracking your lifts.</p>
   </div>
 

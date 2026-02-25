@@ -11,9 +11,14 @@ library(forcats)
 args <- commandArgs(trailingOnly = FALSE)
 file_flag <- grep("--file=", args, value = TRUE)
 if (length(file_flag)) {
+  # Called via Rscript: resolve relative to the script file
   script_dir <- dirname(normalizePath(sub("--file=", "", file_flag)))
-} else {
+} else if (file.exists(file.path(getwd(), "entries.csv"))) {
+  # Interactive, working dir is scripts/
   script_dir <- getwd()
+} else {
+  # Interactive from RStudio Rproj root: entries.csv is in scripts/
+  script_dir <- file.path(getwd(), "scripts")
 }
 csv_path <- file.path(script_dir, "entries.csv")
 df <- read.csv(csv_path, stringsAsFactors = FALSE)

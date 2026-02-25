@@ -13,5 +13,7 @@ scripts/sheet_*.json
 # Generated chart images
 scripts/chart*.png
 
-# R history
+# R history and RStudio session data
 .Rhistory
+.RData
+.Rproj.user/

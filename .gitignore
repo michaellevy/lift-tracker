@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Google OAuth credentials & tokens — never commit these
+scripts/credentials.json
+scripts/token.json
+scripts/token_firestore.json
+
+# Raw sheet dumps — large, regeneratable via dump_sheets.py
+scripts/sheet_*.json
+
+# Generated chart images
+scripts/chart*.png
+
+# R history
+.Rhistory

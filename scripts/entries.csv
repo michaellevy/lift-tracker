@@ -1,0 +1,571 @@
+date,lift_id,lift_name,sets,reps,weight,notes,flag,source
+2025-03-28,back_squat,Back Squat,5,5,145.0,xxxxx not easy but ok,,2025-03
+2025-03-28,barbell_bench_press,Barbell Bench Press,3,8,105.0,xxx easy @ 105. upping estimated max,,2025-03
+2025-04-02,box_jumps,Box Jumps,4,4,0.0,"30"" about right",,2025-03
+2025-04-02,deadlift,Deadlift,3,5,185.0,felt about right. did 3x5 accidentally,,2025-03
+2025-04-02,farmers_carry,Farmer's Carries,3,40,50.0,50 feel pretty easy,high_volume:3x40=120,2025-03
+2025-04-02,strict_press,Strict Press,4,6,65.0,"went to 75# for the last two sets, that felt right",,2025-03
+2025-04-08,back_squat,Back Squat,5,5,155.0,5315311 210 1rm.,,2025-03
+2025-04-08,barbell_bench_press,Barbell Bench Press,3,8,125.0,"125, pretty hard",,2025-03
+2025-04-10,dips,Dips,4,6,0.0,4x6 +10# not too bad,,2025-03
+2025-04-10,step_ups,Step-Ups,3,6,30.0,"30 single leg extension on 20"" box",,2025-03
+2025-04-15,back_squat,Back Squat,5,5,155.0,155 didn't feel right from the beginning so took out easy,,2025-03
+2025-04-15,barbell_bench_press,Barbell Bench Press,1,1,165.0,"165, not quite to failure, but close in the fifth rep",,2025-03
+2025-04-15,weighted_pull_ups,Weighted Pull-Ups,4,6,0.0,"ramped up to 20, only got 2 there",,2025-03
+2025-04-18,deadlift,Deadlift,5,3,225.0,"rounded down, felt easy but my back was tight going in and didn't want to push",,2025-03
+2025-04-18,dips,Dips,3,8,0.0,3x8 easy enough :),,2025-03
+2025-04-18,strict_press,Strict Press,4,5,115.0,"rounded up, 4x5. hard.",,2025-03
+2025-04-25,back_squat,Back Squat,1,5,185.0,warmup set 5x185 didn't feel great in left knee or core so ended there,,2025-03
+2025-04-25,barbell_bench_press,Barbell Bench Press,4,6,140.0,felt straightforward,,2025-03
+2025-04-25,weighted_pull_ups,Weighted Pull-Ups,4,6,5.0,hard but doable,,2025-03
+2025-04-29,deadlift,Deadlift,5,3,225.0,iiiii very doable,,2025-03
+2025-04-29,dips,Dips,4,10,0.0,4x10!,,2025-03
+2025-05-07,back_squat,Back Squat,5,5,165.0,IIIII squats never fun but this was doable. little tinge in left knee,,2025-03
+2025-05-07,barbell_bench_press,Barbell Bench Press,4,6,145.0,4x6 not easy but not close to failure,,2025-03
+2025-05-15,deadlift,Deadlift,5,3,240.0,IIIII doable,,2025-03
+2025-05-15,dips,Dips,3,12,0.0,3x12,,2025-03
+2025-05-15,farmers_carry,Farmer's Carries,3,10,60.0,60- those dumbbells suck for this,,2025-03
+2025-05-15,strict_press,Strict Press,4,6,105.0,iiii surprisingly hard,,2025-03
+2025-05-19,back_squat,Back Squat,1,1,155.0,155 very focused on weight in heel,,2025-03
+2025-05-19,barbell_bench_press,Barbell Bench Press,5,6,155.0,iiiii,,2025-03
+2025-05-19,weighted_pull_ups,Weighted Pull-Ups,4,6,10.0,10 unweighted,,2025-03
+2025-05-21,deadlift,Deadlift,5,3,250.0,totally doable  iiiii,,2025-03
+2025-05-21,strict_press,Strict Press,4,5,110.0,"4x5 with cleans. failed on set 3, not enough rest between sets",,2025-03
+2025-05-25,back_squat,Back Squat,5,5,155.0,"155 could keep in my glutes, not so much at 175, really tough at 165",,2025-03
+2025-05-25,weighted_pull_ups,Weighted Pull-Ups,3,5,25.0,3x5 at 25,weight_jump_up:10→25,2025-03
+2025-05-28,deadlift,Deadlift,1,3,275.0,3x275 and 1x285 was slightly conservative,,2025-03
+2025-05-28,dips,Dips,3,8,0.0,3x8,,2025-03
+2025-06-01,weighted_pull_ups,Weighted Pull-Ups,5,5,0.0,5x5 unweighted. tough,,2025-03
+2025-06-03,deadlift,Deadlift,5,3,245.0,very doable,,2025-03
+2025-06-03,dips,Dips,3,15,0.0,3x15,,2025-03
+2025-06-03,strict_press,Strict Press,5,5,105.0,5x5,,2025-03
+2025-06-05,back_squat,Back Squat,5,5,155.0,5x5 taking it easy back into it. felt good,,2025-03
+2025-06-05,weighted_pull_ups,Weighted Pull-Ups,5,3,15.0,5x3 15#,,2025-03
+2025-06-09,dips,Dips,3,8,0.0,"weighted sets of 5, worked up to 45",,2025-03
+2025-06-11,barbell_bench_press,Barbell Bench Press,5,5,145.0,5x5,,2025-03
+2025-06-11,weighted_pull_ups,Weighted Pull-Ups,4,6,20.0,"5rm test. giving myself 20, but getting my chin above the bar on the fifth rep would reflect progress",,2025-03
+2025-06-13,back_squat,Back Squat,1,1,135.0,?x5 good to work on glute activation and form at lighter weight,,2025-03
+2025-06-16,strict_press,Strict Press,4,6,100.0,not easy!,,2025-03
+2025-06-17,deadlift,Deadlift,1,3,260.0,i,,2025-03
+2025-06-23,deadlift,Deadlift,5,3,195.0,grip is the hardest part,,2025-03
+2025-06-25,strict_press,Strict Press,4,6,105.0,hard but doable,,2025-03
+2025-06-25,weighted_pull_ups,Weighted Pull-Ups,4,6,10.0,hard but doable,,2025-03
+2025-06-30,barbell_bench_press,Barbell Bench Press,4,6,140.0,easy,,2025-07
+2025-06-30,bulgarian_split_squat,Bulgarian Split Squat,3,8,20.0,20. foot out chest down for glutes,,2025-07
+2025-06-30,rdl,Romanian Deadlift,4,8,145.0,easy. not confident on form,,2025-07
+2025-07-04,barbell_bench_press,Barbell Bench Press,5,5,150.0,easy enough. realized hands have been way too narrow. went to thumb length out here.,,2025-07
+2025-07-04,dips,Dips,4,5,55.0,55. hard but doable,,2025-07
+2025-07-04,rdl,Romanian Deadlift,4,6,160.0,easy. keep lower back neutral,,2025-07
+2025-07-04,strict_press,Strict Press,5,5,110.0,very hard. kinked my neck in the third set but ok to finish,,2025-07
+2025-07-04,weighted_pull_ups,Weighted Pull-Ups,4,4,15.0,first chin ups. on angled bars. 7/10 hard.,,2025-07
+2025-07-06,barbell_bench_press,Barbell Bench Press,4,6,140.0,,,manual_correction
+2025-07-06,bulgarian_split_squat,Bulgarian Split Squat,3,8,20.0,,,manual_correction
+2025-07-06,rdl,Romanian Deadlift,4,8,145.0,,,manual_correction
+2025-07-08,strict_press,Strict Press,4,6,105.0,with cleans. hard.,,2025-07
+2025-07-08,weighted_pull_ups,Weighted Pull-Ups,4,5,23.0,pull-up calcs are off. +10 was hard.,,2025-07
+2025-07-10,barbell_bench_press,Barbell Bench Press,5,3,170.0,5x3@170 hard,,2025-07
+2025-07-10,dips,Dips,1,3,90.0,"3x90, 2x100",,2025-07
+2025-07-10,rdl,Romanian Deadlift,5,5,175.0,175 easy enough,,2025-07
+2025-07-18,barbell_bench_press,Barbell Bench Press,2,8,150.0,2x8 close to failure and right wrist hurt,,2025-08
+2025-07-18,lat_pulldown,Lat Pulldown,1,10,140.0,ramped,,manual_correction
+2025-07-18,lat_pulldown,Lat Pulldown,1,10,145.0,ramped,,manual_correction
+2025-07-18,lat_pulldown,Lat Pulldown,1,10,150.0,ramped,,manual_correction
+2025-07-18,rdl,Romanian Deadlift,4,6,180.0,xxxx only hard in grip,,2025-08
+2025-07-21,face_pull,Face Pull,1,15,15.0,"15# pretty hard, good",,2025-08
+2025-07-21,front_squat,Front Squat,5,5,135.0,135 5x5 form focused,,2025-08
+2025-07-21,strict_press,Strict Press,4,3,120.0,xxxx hard,,2025-08
+2025-07-21,weighted_pull_ups,Weighted Pull-Ups,4,3,25.0,xxxx,,2025-08
+2025-07-23,barbell_bench_press,Barbell Bench Press,4,10,135.0,"135, 90 rest: 10, 10, 7, 5 (to failure on the last)",,2025-08
+2025-07-23,hip_thrust,Hip Thrust,4,10,140.0,10@25 good hamstring burn,,2025-08
+2025-07-23,rdl,Romanian Deadlift,4,8,170.0,"grip limited. worked up to 8@175, 5@185 grip failed",,2025-08
+2025-07-25,strict_press,Strict Press,4,6,85.0,85# how many sets of 8 can I do? stopped after 6.,,2025-08
+2025-07-25,weighted_pull_ups,Weighted Pull-Ups,4,6,15.0,"narrow parallel grip chin ups 4 x 1-2 rir: 7, 8, 8, 8",,2025-08
+2025-07-29,front_squat,Front Squat,4,8,155.0,good hard,,2025-08
+2025-08-01,barbell_bench_press,Barbell Bench Press,1,10,155.0,"10rm 155, close to failure",,2025-08
+2025-08-01,rdl,Romanian Deadlift,2,5,195.0,worked up to 2x5@195 could've done more sets,,2025-08
+2025-08-04,strict_press,Strict Press,5,6,105.0,105# 5x6,,2025-08
+2025-08-04,weighted_pull_ups,Weighted Pull-Ups,1,4,25.0,,,2025-08
+2025-08-04,weighted_pull_ups,Weighted Pull-Ups,1,4,25.0,,,2025-08
+2025-08-04,weighted_pull_ups,Weighted Pull-Ups,1,2,25.0,,,2025-08
+2025-08-13,barbell_bench_press,Barbell Bench Press,4,10,135.0,good,,2025-08
+2025-08-13,rdl,Romanian Deadlift,5,5,185.0,"5x5 at 185 trap bar. subtle pinch in right hip until I corrected form: ass back, shins vertical",,2025-08
+2025-08-15,strict_press,Strict Press,5,5,112.0,112# 5x5,,2025-08
+2025-08-15,weighted_pull_ups,Weighted Pull-Ups,4,6,10.0,1rm test. 50. close at 55,,2025-08
+2025-08-17,dips,Dips,5,5,60.0,5x5 band transitions,,2025-08
+2025-08-17,front_squat,Front Squat,4,10,135.0,"16"" box back squats 4x10@135",,2025-08
+2025-08-19,barbell_bench_press,Barbell Bench Press,5,6,145.0,5x6 @ 145 good,,2025-08
+2025-08-19,rdl,Romanian Deadlift,3,5,185.0,3x5@185 taking it easy between back squats and big hike,,2025-08
+2025-08-22,strict_press,Strict Press,5,6,102.0,102# 5x6 IIII,,2025-08
+2025-08-22,weighted_pull_ups,Weighted Pull-Ups,5,3,10.0,5x3 10#,,2025-08
+2025-08-23,barbell_bench_press,Barbell Bench Press,5,5,150.0,5x5@150,,2025-08
+2025-08-23,rdl,Romanian Deadlift,5,6,140.0,trap: 195(?) 5x6 (trap bar plus 140),,2025-08
+2025-08-24,dips,Dips,5,12,95.0,5x12,,2025-08
+2025-08-24,front_squat,Front Squat,5,5,135.0,"5x5@135 not easy, trying to keep it in the rear",,2025-08
+2025-08-25,strict_press,Strict Press,5,5,135.0,push press 5x5@135,,2025-08
+2025-08-28,barbell_bench_press,Barbell Bench Press,5,5,155.0,155 5x5,,2025-08
+2025-08-29,back_squat,Back Squat,2,5,155.0,easy,,2025-09
+2025-08-29,back_squat,Back Squat,2,6,135.0,easy,,2025-09
+2025-08-29,leg_extension,Leg Extension,3,10,50.0,,,2025-09
+2025-08-29,leg_press,Leg Press,3,8,270.0,easy,,2025-09
+2025-08-29,rdl,Romanian Deadlift,3,8,185.0,grip hard at the end,,2025-09
+2025-08-29,trap_bar_deadlift,Trap Bar Deadlift,5,5,235.0,215 5x5,,2025-08
+2025-08-31,barbell_bench_press,Barbell Bench Press,2,5,155.0,,,2025-09
+2025-08-31,barbell_bench_press,Barbell Bench Press,2,10,125.0,,,2025-09
+2025-08-31,db_incline_press,Dumbbell Incline Press,3,12,35.0,35,,2025-09
+2025-08-31,deadlift,Deadlift,2,5,215.0,easy,,2025-09
+2025-08-31,deadlift,Deadlift,1,8,175.0,easy,,2025-09
+2025-08-31,face_pull,Face Pull,3,15,15.0,3 x 15 @ 15 20 25. all at 25 would be good hard,,2025-09
+2025-08-31,strict_press,Strict Press,3,6,95.0,". bench and this rushed, so very hard",,2025-09
+2025-08-31,weighted_pull_ups,Weighted Pull-Ups,4,6,0.0,BW 6665 hard,,2025-09
+2025-09-02,db_flat_bench,DB Flat Bench,3,10,50.0,easy enough,,2025-09
+2025-09-02,front_squat,Front Squat,3,8,125.0,". not too hard, but focus on form",,2025-09
+2025-09-02,walking_lunge,Walking Lunge,3,10,25.0,easy,,2025-09
+2025-09-03,back_squat,Back Squat,2,5,165.0,easy,,2025-09
+2025-09-03,back_squat,Back Squat,2,8,135.0,easy,,2025-09
+2025-09-03,bulgarian_split_squat,Bulgarian Split Squat,3,12,0.0,"form focus: weight on front foot, hips straight down, knees stay behind toes",,2025-09
+2025-09-03,hip_thrust,Hip Thrust,3,12,75.0,"hard on low back, must be form",,2025-09
+2025-09-04,barbell_bench_press,Barbell Bench Press,2,5,155.0,. very doable,,2025-09
+2025-09-04,barbell_bench_press,Barbell Bench Press,2,10,135.0,. very doable,,2025-09
+2025-09-04,db_incline_press,Dumbbell Incline Press,3,8,35.0,easy muscular; bit of right shoulder tingle so took it easy,,2025-09
+2025-09-04,lateral_raise,Lateral Raise,3,10,0.0,: 10 12 15,,2025-09
+2025-09-04,strict_press,Strict Press,3,6,105.0,mod hard,,2025-09
+2025-09-04,triceps_pushdown,Triceps Pushdown,3,15,30.0,30 mod easy,,2025-09
+2025-09-05,deadlift,Deadlift,1,5,225.0,pretty easy,,2025-09
+2025-09-05,deadlift,Deadlift,1,6,195.0,pretty easy,,2025-09
+2025-09-05,lat_pulldown,Lat Pulldown,3,10,100.0,moderate,,2025-09
+2025-09-05,rear_delt_fly,Rear Delt Fly,3,12,12.0,borderline too hard,,2025-09
+2025-09-05,weighted_pull_ups,Weighted Pull-Ups,3,4,15.0,hard,,2025-09
+2025-09-08,barbell_bench_press,Barbell Bench Press,2,5,160.0,easy enough,,2025-09-08
+2025-09-08,barbell_bench_press,Barbell Bench Press,2,8,135.0,easy enough,,2025-09-08
+2025-09-08,dips,Dips,3,10,0.0,moderate,,2025-09-08
+2025-09-08,face_pull,Face Pull,3,15,25.0,good,,2025-09-08
+2025-09-08,incline_db_curl,Incline DB Curl,3,10,30.0,v hard,,2025-09-08
+2025-09-09,back_squat,Back Squat,2,5,170.0,solid,,2025-09-08
+2025-09-09,back_squat,Back Squat,2,8,135.0,solid,,2025-09-08
+2025-09-09,bulgarian_split_squat,Bulgarian Split Squat,3,12,0.0,not too easy,,2025-09-08
+2025-09-09,calf_raise,Calf Raise,2,15,0.0,"single leg, worried I'll be sore",,2025-09-08
+2025-09-10,db_flat_bench,DB Flat Bench,3,12,50.0,hard,,2025-09-08
+2025-09-10,overhead_triceps_extension,Overhead Triceps Extension,3,10,40.0,fine,,2025-09-08
+2025-09-10,rear_delt_fly,Rear Delt Fly,3,15,7.5,burny!,,2025-09-08
+2025-09-10,strict_press,Strict Press,3,7,100.0,pretty hard,,2025-09-08
+2025-09-10,weighted_pull_ups,Weighted Pull-Ups,3,8,0.0,hard,,2025-09-08
+2025-09-11,rdl,Romanian Deadlift,3,8,185.0,ok with straps right,,2025-09-08
+2025-09-11,seated_hamstring_curl,Seated Hamstring Curl,3,12,50.0,less burn,,2025-09-08
+2025-09-11,trap_bar_deadlift,Trap Bar Deadlift,3,4,255.0,fine,,2025-09-08
+2025-09-14,barbell_bench_press,Barbell Bench Press,3,8,115.0,very subtle but highly specific/sharp pain in left clavicle,,2025-09-08
+2025-09-14,face_pull,Face Pull,3,20,20.0,burny!,,2025-09-08
+2025-09-14,lateral_raise,Lateral Raise,3,15,12.0,pretty hard,,2025-09-08
+2025-09-16,back_squat,Back Squat,2,5,175.0,easy,,2025-09-08
+2025-09-16,back_squat,Back Squat,2,8,145.0,easy,,2025-09-08
+2025-09-16,calf_raise,Calf Raise,3,12,0.0,tough,,2025-09-08
+2025-09-16,leg_extension,Leg Extension,3,15,50.0,increase next,,2025-09-08
+2025-09-16,leg_press,Leg Press,1,3,270.0,easy but watch out on depth,,2025-09-08
+2025-09-17,db_flat_bench,DB Flat Bench,3,12,45.0,"hurried, mod hard",,2025-09-08
+2025-09-17,strict_press,Strict Press,3,8,95.0,pretty tough,,2025-09-08
+2025-09-17,triceps_pushdown,Triceps Pushdown,3,15,32.5,"rushed, hard",,2025-09-08
+2025-09-17,weighted_pull_ups,Weighted Pull-Ups,5,3,0.0,being conservative,,2025-09-08
+2025-09-18,glute_kickback,Glute Kickback,3,10,0.0,"up to 60, fine",,2025-09-08
+2025-09-18,rdl,Romanian Deadlift,3,8,185.0,very minor clavicle stress,,2025-09-08
+2025-09-18,seated_hamstring_curl,Seated Hamstring Curl,3,12,55.0,okay,,2025-09-08
+2025-09-18,walking_lunge,Walking Lunge,3,10,30.0,left knee pain,,2025-09-08
+2025-09-19,barbell_bench_press,Barbell Bench Press,2,5,165.0,,,2025-09-08
+2025-09-19,barbell_bench_press,Barbell Bench Press,2,10,125.0,,,2025-09-08
+2025-09-19,db_incline_press,Dumbbell Incline Press,3,12,25.0,going easy,,2025-09-08
+2025-09-19,face_pull,Face Pull,3,20,22.5,"hard. scapula down, hands high and wide",,2025-09-08
+2025-09-19,incline_db_curl,Incline DB Curl,3,12,25.0,hammer. hard,,2025-09-08
+2025-09-19,row,Row,3,12,105.0,good,,2025-09-08
+2025-09-20,back_squat,Back Squat,2,5,185.0,not hard,,2025-09-08
+2025-09-20,back_squat,Back Squat,2,8,150.0,not hard,,2025-09-08
+2025-09-20,front_squat,Front Squat,3,6,135.0,at 135 next,,2025-09-08
+2025-09-20,leg_extension,Leg Extension,3,12,60.0,fine,,2025-09-08
+2025-09-22,lat_pulldown,Lat Pulldown,3,10,110.0,neutral grip  mod hard,,2025-09-08
+2025-09-22,strict_press,Strict Press,3,10,95.0,,,2025-09-08
+2025-09-22,triceps_pushdown,Triceps Pushdown,3,15,37.5,,,2025-09-08
+2025-09-24,glute_kickback,Glute Kickback,3,10,70.0,keep back flat,,2025-09-08
+2025-09-24,hip_adduction,Hip Adduction,3,10,0.0,up to 55,,2025-09-08
+2025-09-24,rdl,Romanian Deadlift,3,5,205.0,just held on. clavicle maybe slightly exacerbated,,2025-09-08
+2025-09-24,seated_hamstring_curl,Seated Hamstring Curl,3,10,60.0,fine,,2025-09-08
+2025-09-25,barbell_bench_press,Barbell Bench Press,2,6,150.0,fine,,2025-09-08
+2025-09-25,barbell_bench_press,Barbell Bench Press,2,10,125.0,fine,,2025-09-08
+2025-09-25,face_pull,Face Pull,3,20,22.5,,,2025-09-08
+2025-09-25,hip_abduction,Hip Abduction,3,20,25.0,good burn!,,2025-09-08
+2025-09-25,incline_db_curl,Incline DB Curl,3,12,25.0,"straight, fine",,2025-09-08
+2025-09-25,row,Row,3,10,110.0,fine,,2025-09-08
+2025-09-29,back_squat,Back Squat,2,5,195.0,". not hard. brace core every rep. try 16"" box (lighter!)",,2025-09-08
+2025-09-29,back_squat,Back Squat,2,8,155.0,". not hard. brace core every rep. try 16"" box (lighter!)",,2025-09-08
+2025-09-29,bulgarian_split_squat,Bulgarian Split Squat,3,12,0.0,worked up to 12. good,,2025-09-08
+2025-09-29,calf_raise,Calf Raise,3,12,0.0,tough,,2025-09-08
+2025-09-29,lat_pulldown,Lat Pulldown,3,10,115.0,fine,,2025-09-08
+2025-09-29,leg_extension,Leg Extension,3,12,70.0,". fine, up reps",,2025-09-08
+2025-09-29,rear_delt_fly,Rear Delt Fly,3,18,7.5,burns!,,2025-09-08
+2025-09-29,triceps_pushdown,Triceps Pushdown,3,12,42.5,maybe drop weight and focus on form?,,2025-09-08
+2025-10-01,hip_adduction,Hip Adduction,3,12,55.0,,,2025-09-08
+2025-10-01,hip_thrust,Hip Thrust,3,10,145.0,fine,,2025-09-08
+2025-10-01,seated_hamstring_curl,Seated Hamstring Curl,3,12,65.0,good hard,,2025-09-08
+2025-10-01,walking_lunge,Walking Lunge,3,20,0.0,"30. fine. weight all on front foot towards heal, straight down and up",,2025-09-08
+2025-10-02,face_pull,Face Pull,3,15,27.5,fine,,2025-09-08
+2025-10-02,hip_abduction,Hip Abduction,3,20,25.0,,,2025-09-08
+2025-10-02,incline_db_curl,Incline DB Curl,3,10,30.0,straight   surprisingly ok,,2025-09-08
+2025-10-02,lateral_raise,Lateral Raise,3,12,15.0,hard,,2025-09-08
+2025-10-03,back_squat,Back Squat,2,5,165.0,. good not easy. slightest hip pinch right after. nothing next day!,,2025-09-08
+2025-10-03,back_squat,Back Squat,1,8,135.0,. good not easy. slightest hip pinch right after. nothing next day!,,2025-09-08
+2025-10-03,bulgarian_split_squat,Bulgarian Split Squat,3,10,15.0,,,2025-09-08
+2025-10-03,bulgarian_split_squat,Bulgarian Split Squat,3,12,0.0,,,2025-09-08
+2025-10-03,calf_raise,Calf Raise,3,15,35.0,fine,,2025-09-08
+2025-10-03,leg_extension,Leg Extension,3,15,70.0,good hard. bump weight,,2025-09-08
+2025-10-06,hammer_curl,Hammer Curl,3,12,30.0,,,2025-09-08
+2025-10-06,lat_pulldown,Lat Pulldown,3,10,120.0,fine,,2025-09-08
+2025-10-06,rear_delt_fly,Rear Delt Fly,3,12,10.0,good hard,,2025-09-08
+2025-10-06,triceps_pushdown,Triceps Pushdown,3,12,40.0,,,2025-09-08
+2025-10-07,hip_adduction,Hip Adduction,3,12,55.0,,,2025-09-08
+2025-10-07,hip_thrust,Hip Thrust,4,8,145.0,"12"" box. little rough on the low back",,2025-09-08
+2025-10-07,seated_hamstring_curl,Seated Hamstring Curl,3,10,70.0,good. up reps,,2025-09-08
+2025-10-07,walking_lunge,Walking Lunge,3,20,0.0,(total) 40. see prior note. nice farmers carry benefit here.,,2025-09-08
+2025-10-08,face_pull,Face Pull,3,20,27.5,,,2025-09-08
+2025-10-08,row,Row,3,10,115.0,,,2025-09-08
+2025-10-09,back_squat,Back Squat,2,6,185.0,,,2025-09-08
+2025-10-09,back_squat,Back Squat,1,8,145.0,,,2025-09-08
+2025-10-09,bulgarian_split_squat,Bulgarian Split Squat,3,8,20.0,good hard,,2025-09-08
+2025-10-09,calf_raise,Calf Raise,3,15,45.0,,,2025-09-08
+2025-10-09,leg_extension,Leg Extension,3,12,80.0,fine,,2025-09-08
+2025-10-10,hammer_curl,Hammer Curl,3,12,25.0,mod,,2025-09-08
+2025-10-10,rear_delt_fly,Rear Delt Fly,3,15,10.0,mod hard,,2025-09-08
+2025-10-10,triceps_pushdown,Triceps Pushdown,3,15,35.0,,,2025-09-08
+2025-10-10,weighted_pull_ups,Weighted Pull-Ups,4,5,0.0,,,2025-09-08
+2025-10-15,calf_raise,Calf Raise,3,20,50.0,those last five are burny af,,2025-09-08
+2025-10-15,hip_thrust,Hip Thrust,3,8,155.0,"low back a bit iffy during, fine after. add targeted warmup. and squeeze core and cheeks!",,2025-09-08
+2025-10-15,seated_hamstring_curl,Seated Hamstring Curl,3,12,70.0,v hard,,2025-09-08
+2025-10-15,walking_lunge,Walking Lunge,3,20,20.0,slight clavicle stress,,2025-09-08
+2025-10-16,db_incline_press,Dumbbell Incline Press,3,15,0.0,,,2025-09-08
+2025-10-16,face_pull,Face Pull,3,12,27.5,better easier?,,2025-09-08
+2025-10-16,hip_abduction,Hip Abduction,3,15,40.0,good,,2025-09-08
+2025-10-16,row,Row,3,12,100.0,". easy, up weight",,2025-09-08
+2025-10-22,back_squat,Back Squat,2,5,205.0,,,2025-09-08
+2025-10-22,back_squat,Back Squat,1,8,155.0,,,2025-09-08
+2025-10-22,calf_raise,Calf Raise,3,15,50.0,,,2025-09-08
+2025-10-22,leg_extension,Leg Extension,3,12,90.0,fine,,2025-09-08
+2025-10-23,hammer_curl,Hammer Curl,3,15,25.0,hard,,2025-09-08
+2025-10-23,rear_delt_fly,Rear Delt Fly,3,8,15.0,v hard,,2025-09-08
+2025-10-23,row,Row,3,8,100.0,,,2025-09-08
+2025-10-23,triceps_pushdown,Triceps Pushdown,3,15,32.5,,,2025-09-08
+2025-10-23,weighted_pull_ups,Weighted Pull-Ups,4,6,0.0,"neutral 8/5/6 hurried, whole session rushed",,2025-09-08
+2025-10-26,hip_adduction,Hip Adduction,3,10,70.0,good,,2025-09-08
+2025-10-26,hip_thrust,Hip Thrust,3,8,155.0,". 15"" box. fine, ribs down, squeeze cheeks. up weight",,2025-09-08
+2025-10-26,seated_hamstring_curl,Seated Hamstring Curl,3,12,70.0,ok,,2025-09-08
+2025-10-26,walking_lunge,Walking Lunge,3,20,15.0,. fine. keep it in the heal,,2025-09-08
+2025-10-28,barbell_bench_press,Barbell Bench Press,3,8,100.0,"fine, but felt close to some pain somehow",,2025-09-08
+2025-10-28,db_incline_press,Dumbbell Incline Press,3,12,25.0,"easy pain free, stay close to neutral",,2025-09-08
+2025-10-28,face_pull,Face Pull,3,20,25.0,good hard,,2025-09-08
+2025-10-28,hip_abduction,Hip Abduction,3,20,40.0,good hard,,2025-09-08
+2025-10-28,lateral_raise,Lateral Raise,3,12,10.0,good. go to 12,,2025-09-08
+2025-10-28,row,Row,3,12,120.0,"mod, good",,2025-09-08
+2025-10-29,back_squat,Back Squat,2,5,205.0,. slight hip impingement. stay here or bump 5#,,2025-09-08
+2025-10-29,back_squat,Back Squat,1,8,155.0,. slight hip impingement. stay here or bump 5#,,2025-09-08
+2025-10-29,bulgarian_split_squat,Bulgarian Split Squat,3,10,20.0,. hard. break between legs,,2025-09-08
+2025-10-29,calf_raise,Calf Raise,3,15,55.0,,,2025-09-08
+2025-10-29,leg_extension,Leg Extension,3,12,100.0,,,2025-09-08
+2025-10-31,hammer_curl,Hammer Curl,3,10,30.0,vv hard,,2025-09-08
+2025-10-31,lat_pulldown,Lat Pulldown,3,10,130.0,hard,,2025-09-08
+2025-10-31,rear_delt_fly,Rear Delt Fly,3,20,10.0,,,2025-09-08
+2025-10-31,row,Row,3,12,100.0,fine. up weight,,2025-09-08
+2025-10-31,triceps_pushdown,Triceps Pushdown,3,12,35.0,mod hard,,2025-09-08
+2025-11-02,calf_raise,Calf Raise,3,15,60.0,easy,,2025-09-08
+2025-11-02,hip_adduction,Hip Adduction,3,12,70.0,,,2025-09-08
+2025-11-02,hip_thrust,Hip Thrust,3,8,165.0,good,,2025-09-08
+2025-11-02,rdl,Romanian Deadlift,3,8,115.0,fine,,2025-09-08
+2025-11-02,seated_hamstring_curl,Seated Hamstring Curl,3,10,80.0,good. up reps,,2025-09-08
+2025-11-03,barbell_bench_press,Barbell Bench Press,3,6,115.0,good,,2025-09-08
+2025-11-03,db_incline_press,Dumbbell Incline Press,3,12,30.0,,,2025-09-08
+2025-11-03,face_pull,Face Pull,3,12,27.5,"good, up reps. pull shoulder blades down",,2025-09-08
+2025-11-03,hip_abduction,Hip Abduction,3,12,55.0,,,2025-09-08
+2025-11-03,lateral_raise,Lateral Raise,3,12,12.0,". vertical, arms forward 15d, pull out not up",,2025-09-08
+2025-11-03,lateral_raise,Lateral Raise,3,14,0.0,". vertical, arms forward 15d, pull out not up",,2025-09-08
+2025-11-03,row,Row,3,8,130.0,,,2025-09-08
+2025-11-04,back_squat,Back Squat,5,5,185.0,good. squat feels much better these days.,,2025-09-08
+2025-11-04,calf_raise,Calf Raise,3,12,70.0,,,2025-09-08
+2025-11-04,leg_extension,Leg Extension,3,12,100.0,go up,,2025-09-08
+2025-11-04,walking_lunge,Walking Lunge,3,20,25.0,"good, could up",,2025-09-08
+2025-11-06,db_flat_bench,DB Flat Bench,5,5,50.0,"mod, could up",,2025-09-08
+2025-11-06,hammer_curl,Hammer Curl,3,10,30.0,,,2025-09-08
+2025-11-06,overhead_triceps_extension,Overhead Triceps Extension,3,12,0.0,hard,,2025-09-08
+2025-11-06,rear_delt_fly,Rear Delt Fly,3,15,10.0,at chest height,,2025-09-08
+2025-11-06,row,Row,3,12,110.0,easy enough. up,,2025-09-08
+2025-11-06,triceps_pushdown,Triceps Pushdown,3,15,35.0,,,2025-09-08
+2025-11-06,weighted_pull_ups,Weighted Pull-Ups,3,5,0.0,mod,,2025-09-08
+2025-11-07,calf_raise,Calf Raise,3,15,70.0,go 18,,2025-09-08
+2025-11-07,hip_adduction,Hip Adduction,3,12,85.0,up reps both,,2025-09-08
+2025-11-07,hip_thrust,Hip Thrust,3,10,0.0,^clav sore but no pain for several days after,,2025-09-08
+2025-11-07,rdl,Romanian Deadlift,3,8,135.0,"fine, up 10",,2025-09-08
+2025-11-07,seated_hamstring_curl,Seated Hamstring Curl,3,12,80.0,up weight,,2025-09-08
+2025-11-07,trap_bar_deadlift,Trap Bar Deadlift,3,5,165.0,145 totally fine,,2025-09-08
+2025-11-11,barbell_bench_press,Barbell Bench Press,3,5,135.0,fine with narrow grip. threatening sensation wider,,2025-09-08
+2025-11-11,barbell_bench_press,Barbell Bench Press,3,5,135.0,fine with narrow grip. threatening sensation wider,,2025-11
+2025-11-11,db_incline_press,Dumbbell Incline Press,3,12,35.0,. go 40,,2025-09-08
+2025-11-11,db_incline_press,Dumbbell Incline Press,3,12,35.0,. go 40,,2025-11
+2025-11-11,dips,Dips,3,10,0.0,3 unsure,,2025-09-08
+2025-11-11,face_pull,Face Pull,3,15,27.5,,,2025-09-08
+2025-11-11,lateral_raise,Lateral Raise,3,14,12.0,v hard,,2025-09-08
+2025-11-11,lateral_raise,Lateral Raise,3,14,12.0,v hard,,2025-11
+2025-11-11,row,Row,3,12,130.0,hard,,2025-09-08
+2025-11-11,row,Row,3,12,130.0,hard,,2025-11
+2025-11-12,back_squat,Back Squat,3,5,205.0,,,2025-09-08
+2025-11-12,back_squat,Back Squat,3,5,205.0,hard. stay,,2025-11
+2025-11-12,rdl,Romanian Deadlift,3,8,145.0,ok,,2025-11
+2025-11-13,db_flat_bench,DB Flat Bench,3,8,50.0,go x10,,2025-11
+2025-11-13,face_pull,Face Pull,3,15,32.5,fine,,2025-11
+2025-11-13,incline_db_curl,Incline DB Curl,3,12,30.0,"standing. hard, stay",,2025-11
+2025-11-13,straight_arm_pulldown,Straight Arm Pulldown,3,15,37.5,"easy, go up",,2025-11
+2025-11-13,triceps_pushdown,Triceps Pushdown,3,12,37.5,"good, stay, keep elbows locked, tension throughout",,2025-11
+2025-11-13,weighted_pull_ups,Weighted Pull-Ups,3,5,0.0,"ok, pretty hard",,2025-11
+2025-11-14,cable_rotation,Cable Rotation,3,12,22.5,,,2025-11
+2025-11-14,hip_thrust,Hip Thrust,3,10,145.0,"145, 165, 185",,2025-11
+2025-11-14,seated_hamstring_curl,Seated Hamstring Curl,3,12,90.0,good go up,,2025-11
+2025-11-14,trap_bar_deadlift,Trap Bar Deadlift,3,5,195.0,,,2025-11
+2025-11-17,barbell_bench_press,Barbell Bench Press,3,5,145.0,ok go 155. pinkies just inside band.,,2025-11
+2025-11-17,db_incline_press,Dumbbell Incline Press,3,12,40.0,,,2025-11
+2025-11-17,db_incline_press,Dumbbell Incline Press,3,10,45.0,,,2025-11
+2025-11-17,hammer_curl,Hammer Curl,3,12,30.0,v hard,,2025-11
+2025-11-17,lateral_raise,Lateral Raise,3,20,10.0,"hard, stay",,2025-11
+2025-11-17,overhead_triceps_extension,Overhead Triceps Extension,3,15,35.0,v hard pushdown,,2025-11
+2025-11-17,rear_delt_fly,Rear Delt Fly,3,20,10.0,so burny,,2025-11
+2025-11-17,row,Row,3,10,135.0,go x12,,2025-11
+2025-11-19,bulgarian_split_squat,Bulgarian Split Squat,3,8,25.0,,,2025-11
+2025-11-20,db_flat_bench,DB Flat Bench,3,10,50.0,,,2025-11
+2025-11-20,incline_db_curl,Incline DB Curl,2,12,0.0,same,,2025-11
+2025-11-20,triceps_pushdown,Triceps Pushdown,3,12,40.5,,,2025-11
+2025-11-20,weighted_pull_ups,Weighted Pull-Ups,3,5,0.0,"semi neutral, go 6",,2025-11
+2025-11-22,calf_raise,Calf Raise,3,18,70.0,a lot. back to x15,,2025-11
+2025-11-22,glute_kickback,Glute Kickback,2,15,75.0,"75, 80 x12, go 90",,2025-11
+2025-11-22,hip_abduction,Hip Abduction,1,15,0.0,x 85 v hard,,2025-11
+2025-11-22,hip_adduction,Hip Adduction,1,15,0.0,x 55 go 70,,2025-11
+2025-11-22,hip_thrust,Hip Thrust,3,10,185.0,"good, go 195",,2025-11
+2025-11-22,trap_bar_deadlift,Trap Bar Deadlift,3,5,215.0,"fine, go 215",,2025-11
+2025-11-24,barbell_bench_press,Barbell Bench Press,3,5,155.0,"good, hard,  stay or go 160",,2025-11
+2025-11-24,db_incline_press,Dumbbell Incline Press,3,10,45.0,"hard, stay",,2025-11
+2025-11-24,lateral_raise,Lateral Raise,3,15,12.0,"good, go x16 or 10 x20",,2025-11
+2025-11-24,overhead_triceps_extension,Overhead Triceps Extension,1,15,0.0,"x12 27.5, 32.5, x8 37.5, go 32.5",,2025-11
+2025-11-24,pallof_press,Pallof Press,3,10,0.0,,,2025-11
+2025-11-24,row,Row,3,12,135.0,,,2025-11
+2025-11-26,back_squat,Back Squat,3,5,205.0,,,2025-11
+2025-11-26,bulgarian_split_squat,Bulgarian Split Squat,3,8,25.0,go 10,,2025-11
+2025-11-26,hanging_leg_raise,Hanging Leg Raise,3,8,0.0,up reps,,2025-11
+2025-11-26,rdl,Romanian Deadlift,3,8,165.0,go 175. hinge,,2025-11
+2025-11-28,db_flat_bench,DB Flat Bench,3,10,55.0,try 60 x8,,2025-11
+2025-11-28,dips,Dips,1,1,0.0,3  5 7 9 11 ok,,2025-11
+2025-11-28,face_pull,Face Pull,3,15,35.0,,,2025-11
+2025-11-28,incline_db_curl,Incline DB Curl,3,12,30.0,standing,,2025-11
+2025-11-28,lat_pulldown,Lat Pulldown,3,10,135.0,"good, go 140",,2025-11
+2025-11-28,straight_arm_pulldown,Straight Arm Pulldown,3,15,42.5,,,2025-11
+2025-11-28,triceps_pushdown,Triceps Pushdown,3,12,40.0,,,2025-11
+2025-11-29,cable_rotation,Cable Rotation,3,12,22.5,"hips stay square, cable shoulder to shoulder",,2025-11
+2025-11-29,calf_raise,Calf Raise,3,15,70.0,"stay, work on control",,2025-11
+2025-11-29,hip_abduction,Hip Abduction,1,15,0.0,x 85 v hard,,2025-11
+2025-11-29,hip_adduction,Hip Adduction,3,15,70.0,,,2025-11
+2025-11-29,hip_thrust,Hip Thrust,3,10,195.0,"ok, up or stay",,2025-11
+2025-11-29,seated_hamstring_curl,Seated Hamstring Curl,3,12,95.0,go 100,,2025-11
+2025-11-29,trap_bar_deadlift,Trap Bar Deadlift,3,5,235.0,"fine, go 235",,2025-11
+2025-12-02,barbell_bench_press,Barbell Bench Press,3,5,145.0,,,2025-11
+2025-12-02,db_incline_press,Dumbbell Incline Press,3,10,48.5,"fine, 12 on last set. go 50",,2025-11
+2025-12-02,hammer_curl,Hammer Curl,3,10,31.0,,,2025-11
+2025-12-02,lateral_raise,Lateral Raise,3,16,11.0,,,2025-11
+2025-12-02,overhead_triceps_extension,Overhead Triceps Extension,3,13,32.0,v hard. need this!,,2025-11
+2025-12-02,pallof_press,Pallof Press,3,12,22.0,,,2025-11
+2025-12-02,rear_delt_fly,Rear Delt Fly,2,15,11.0,,,2025-11
+2025-12-04,back_squat,Back Squat,3,5,188.0,,,2025-11
+2025-12-04,bulgarian_split_squat,Bulgarian Split Squat,3,16,14.0,,,2025-11
+2025-12-04,rdl,Romanian Deadlift,3,8,97.0,22kg dbs,,2025-11
+2025-12-05,db_flat_bench,DB Flat Bench,3,12,53.0,,,2025-11
+2025-12-05,face_pull,Face Pull,3,15,33.0,good,,2025-11
+2025-12-05,incline_db_curl,Incline DB Curl,3,12,28.0,,,2025-11
+2025-12-05,straight_arm_pulldown,Straight Arm Pulldown,3,12,44.0,ok,,2025-11
+2025-12-05,triceps_pushdown,Triceps Pushdown,3,12,38.0,,,2025-11
+2025-12-05,weighted_pull_ups,Weighted Pull-Ups,3,6,0.0,bar,,2025-11
+2025-12-10,cable_rotation,Cable Rotation,3,12,22.5,"hips stay square, cable shoulder to shoulder try up. think about hips moving counter",,2025-11
+2025-12-10,seated_hamstring_curl,Seated Hamstring Curl,3,12,100.0,. good. control all the way thru both directions,,2025-11
+2025-12-10,trap_bar_deadlift,Trap Bar Deadlift,3,5,255.0,. find go up,,2025-11
+2025-12-11,barbell_bench_press,Barbell Bench Press,3,6,160.0,maybe with spotter,,2025-11
+2025-12-11,db_incline_press,Dumbbell Incline Press,3,10,50.0,go x11,,2025-11
+2025-12-11,hammer_curl,Hammer Curl,3,12,30.0,so hard,,2025-11
+2025-12-11,lateral_raise,Lateral Raise,3,20,10.0,good,,2025-11
+2025-12-11,overhead_triceps_extension,Overhead Triceps Extension,3,15,27.5,"easy, up weight",,2025-11
+2025-12-11,row,Row,3,12,135.0,"fine, go 140",,2025-11
+2025-12-13,back_squat,Back Squat,1,3,245.0,3rm 245,,2025-11
+2025-12-14,db_flat_bench,DB Flat Bench,3,8,60.0,,,2025-11
+2025-12-14,dips,Dips,3,10,0.0,go 12,,2025-11
+2025-12-14,face_pull,Face Pull,3,15,35.0,go up,,2025-11
+2025-12-14,incline_db_curl,Incline DB Curl,3,12,30.0,,,2025-11
+2025-12-14,lat_pulldown,Lat Pulldown,3,10,150.0,"good, try 155",,2025-11
+2025-12-14,straight_arm_pulldown,Straight Arm Pulldown,3,15,45.0,"fine, try 47.5",,2025-11
+2025-12-14,triceps_pushdown,Triceps Pushdown,3,12,40.0,,,2025-11
+2025-12-16,cable_rotation,Cable Rotation,3,12,27.5,"hard, try 25",,2025-11
+2025-12-16,hip_abduction,Hip Abduction,1,15,0.0,x 85 v hard,,2025-11
+2025-12-16,hip_adduction,Hip Adduction,3,15,70.0,,,2025-11
+2025-12-16,hip_thrust,Hip Thrust,3,10,205.0,go 215,,2025-11
+2025-12-16,trap_bar_deadlift,Trap Bar Deadlift,3,5,275.0,". fine, go 285",,2025-11
+2025-12-17,barbell_bench_press,Barbell Bench Press,1,5,210.0,"test: 185 5rm, 210 1rm",,2025-11
+2025-12-17,hammer_curl,Hammer Curl,2,12,30.0,,,2025-11
+2025-12-17,overhead_triceps_extension,Overhead Triceps Extension,3,12,32.5,good. go x14,,2025-11
+2025-12-17,rear_delt_fly,Rear Delt Fly,2,20,10.0,single side. harr,,2025-11
+2025-12-17,row,Row,3,10,150.0,go 155,,2025-11
+2025-12-18,back_squat,Back Squat,3,5,205.0,"205. go 210. lock core and hips, keep heals down.",,2025-11
+2025-12-18,bulgarian_split_squat,Bulgarian Split Squat,3,8,30.0,go 9,weight_jump_up:14→30,2025-11
+2025-12-18,calf_raise,Calf Raise,3,15,70.0,,,2025-11
+2025-12-18,hanging_leg_raise,Hanging Leg Raise,2,12,0.0,,,2025-11
+2025-12-18,rdl,Romanian Deadlift,3,8,175.0,. try 185,,2025-11
+2025-12-19,db_flat_bench,DB Flat Bench,3,10,60.0,go x11 or 12,,2025-11
+2025-12-19,dips,Dips,3,12,0.0,bit spicy clavicle,,2025-11
+2025-12-19,face_pull,Face Pull,3,15,40.0,stay. scap down throughout,,2025-11
+2025-12-19,incline_db_curl,Incline DB Curl,3,12,25.0,go x15,,2025-11
+2025-12-19,straight_arm_pulldown,Straight Arm Pulldown,3,12,50.0,try 15,,2025-11
+2025-12-19,triceps_pushdown,Triceps Pushdown,3,12,40.0,"stay, lock elbows",,2025-11
+2025-12-19,weighted_pull_ups,Weighted Pull-Ups,1,1,0.0,"7, 7, 6",,2025-11
+2025-12-23,cable_rotation,Cable Rotation,2,10,30.0,hard,,2025-11
+2025-12-23,calf_raise,Calf Raise,3,15,70.0,"stay, work on control",,2025-11
+2025-12-23,glute_kickback,Glute Kickback,3,12,90.0,. go 100,,2025-11
+2025-12-23,hip_abduction,Hip Abduction,1,15,0.0,x 85 v hard,,2025-11
+2025-12-23,hip_adduction,Hip Adduction,3,15,70.0,85 last set fine,,2025-11
+2025-12-23,seated_hamstring_curl,Seated Hamstring Curl,3,12,100.0,. good. control all the way thru both directions go 105,,2025-11
+2025-12-23,trap_bar_deadlift,Trap Bar Deadlift,3,5,245.0,going easy,,2025-11
+2025-12-26,barbell_bench_press,Barbell Bench Press,3,5,175.0,"good, try x6 with guards",,2025-11
+2025-12-26,db_incline_press,Dumbbell Incline Press,3,10,55.0,stay,,2025-11
+2025-12-26,hammer_curl,Hammer Curl,2,12,30.0,so hard,,2025-11
+2025-12-26,lateral_raise,Lateral Raise,3,15,12.0,stay,,2025-11
+2025-12-26,overhead_triceps_extension,Overhead Triceps Extension,3,12,32.5,good. go x14 go up,,2025-11
+2025-12-26,pallof_press,Pallof Press,2,12,25.0,,,2025-11
+2025-12-26,rear_delt_fly,Rear Delt Fly,3,10,15.0,go back,,2025-11
+2025-12-29,barbell_bench_press,Barbell Bench Press,3,5,175.0,"good, try x6 with guards",,2025-11
+2025-12-29,db_flat_bench,DB Flat Bench,3,10,60.0,"60 12, 11, 8",,2025-11
+2025-12-29,db_incline_press,Dumbbell Incline Press,2,8,55.0,55 8/8/,,2025-11
+2025-12-29,dips,Dips,3,13,0.0,go 14 don't go low,,2025-11
+2025-12-29,face_pull,Face Pull,3,15,40.0,stay. scap down throughout stay,,2025-11
+2025-12-29,hammer_curl,Hammer Curl,2,12,30.0,so hard,,2025-11
+2025-12-29,incline_db_curl,Incline DB Curl,3,12,25.0,low angle. stay,,2025-11
+2025-12-29,lateral_raise,Lateral Raise,3,15,12.5,up reps,,2025-11
+2025-12-29,overhead_triceps_extension,Overhead Triceps Extension,3,12,35.0,hard,,2025-11
+2025-12-29,pallof_press,Pallof Press,3,12,25.0,try up,,2025-11
+2025-12-29,row,Row,3,10,120.0,different machine,,2025-11
+2025-12-29,straight_arm_pulldown,Straight Arm Pulldown,3,15,50.0,stay,,2025-11
+2025-12-29,triceps_pushdown,Triceps Pushdown,3,12,40.0,"stay, lock elbows stay",,2025-11
+2025-12-29,weighted_pull_ups,Weighted Pull-Ups,3,7,0.0,,,2025-11
+2026-01-09,db_flat_bench,DB Flat Bench,3,10,50.0,,,2025-11
+2026-01-09,dips,Dips,3,8,0.0,,,2025-11
+2026-01-09,face_pull,Face Pull,3,15,35.0,maybe better here than heavier?,,2025-11
+2026-01-09,incline_db_curl,Incline DB Curl,3,12,22.5,,,2025-11
+2026-01-09,straight_arm_pulldown,Straight Arm Pulldown,3,15,45.0,,,2025-11
+2026-01-09,triceps_pushdown,Triceps Pushdown,3,12,35.0,,,2025-11
+2026-01-09,weighted_pull_ups,Weighted Pull-Ups,5,3,0.0,,,2025-11
+2026-01-11,cable_rotation,Cable Rotation,2,12,27.5,,,2025-11
+2026-01-11,glute_kickback,Glute Kickback,3,12,100.0,go 110,,2025-11
+2026-01-11,hip_thrust,Hip Thrust,3,10,185.0,,,2025-11
+2026-01-11,trap_bar_deadlift,Trap Bar Deadlift,3,5,265.0,easy,,2025-11
+2026-01-13,barbell_bench_press,Barbell Bench Press,3,6,175.0,175 554 ?,,2025-11
+2026-01-13,db_incline_press,Dumbbell Incline Press,3,10,50.0,,,2025-11
+2026-01-13,hammer_curl,Hammer Curl,2,12,30.0,so hard not too bad,,2025-11
+2026-01-13,lateral_raise,Lateral Raise,3,20,0.0,everything hard today. sickness or creatine?,,2025-11
+2026-01-13,overhead_triceps_extension,Overhead Triceps Extension,3,12,35.0,hard fine,,2025-11
+2026-01-13,pallof_press,Pallof Press,2,12,30.0,stay or go up,,2025-11
+2026-01-13,rear_delt_fly,Rear Delt Fly,3,15,12.5,maybe go back to 10,,2025-11
+2026-01-14,back_squat,Back Squat,3,5,185.0,"feet shoulder width and near parallel, fine",,2025-11
+2026-01-14,bulgarian_split_squat,Bulgarian Split Squat,2,10,15.0,,,2025-11
+2026-01-14,calf_raise,Calf Raise,3,18,0.0,,,2025-11
+2026-01-14,hanging_leg_raise,Hanging Leg Raise,3,8,0.0,hard on clavicle. try hanging?,,2025-11
+2026-01-14,rdl,Romanian Deadlift,3,8,165.0,,,2025-11
+2026-01-16,db_flat_bench,DB Flat Bench,3,8,60.0,60 8/10/12 hard at end,,2025-11
+2026-01-16,dips,Dips,3,10,0.0,"fine, first set tough on left shoulder",,2025-11
+2026-01-16,face_pull,Face Pull,3,15,35.0,maybe better here than heavier? pretty easy,,2025-11
+2026-01-16,incline_db_curl,Incline DB Curl,2,12,25.0,fine,,2025-11
+2026-01-16,lat_pulldown,Lat Pulldown,3,10,0.0,140/145/150 fine,,2025-11
+2026-01-16,straight_arm_pulldown,Straight Arm Pulldown,3,12,50.0,fine,,2025-11
+2026-01-16,triceps_pushdown,Triceps Pushdown,2,15,37.5,,,2025-11
+2026-01-17,hip_abduction,Hip Abduction,3,15,85.0,hard,,2025-11
+2026-01-17,hip_adduction,Hip Adduction,3,15,85.0,,,2025-11
+2026-01-17,seated_hamstring_curl,Seated Hamstring Curl,3,12,105.0,stay,,2025-11
+2026-01-17,trap_bar_deadlift,Trap Bar Deadlift,3,5,275.0,easy enough,,2025-11
+2026-01-18,barbell_bench_press,Barbell Bench Press,3,5,175.0,good. try x6 or 180,,2025-11
+2026-01-18,db_incline_press,Dumbbell Incline Press,3,10,55.0,,,2025-11
+2026-01-18,lateral_raise,Lateral Raise,3,15,12.0,quick intervals,,2025-11
+2026-01-18,pallof_press,Pallof Press,2,12,30.0,stay or go up go up,,2025-11
+2026-01-18,row,Row,3,10,155.0,try 160,,2025-11
+2026-01-21,back_squat,Back Squat,3,5,205.0,go 215,,2025-11
+2026-01-21,hanging_leg_raise,Hanging Leg Raise,3,8,0.0,hanging. alternate hanging and on forearms,,2025-11
+2026-01-21,leg_press,Leg Press,3,15,180.0,"trial, go up. arches at bar height. feel glutes at bottom.",,2025-11
+2026-01-21,rdl,Romanian Deadlift,3,8,185.0,,,2025-11
+2026-01-22,db_flat_bench,DB Flat Bench,3,12,60.0,stay,,2025-11
+2026-01-22,dips,Dips,3,12,0.0,fine,,2025-11
+2026-01-22,face_pull,Face Pull,3,15,35.0,"maybe better here than heavier? pretty easy go up, squeeze shoulder blades to protect clavicle",,2025-11
+2026-01-22,incline_db_curl,Incline DB Curl,3,10,30.0,"stay, feet up",,2025-11
+2026-01-22,straight_arm_pulldown,Straight Arm Pulldown,3,15,50.0,"go up, control throughout",,2025-11
+2026-01-22,triceps_pushdown,Triceps Pushdown,3,12,40.0,up reps,,2025-11
+2026-01-22,weighted_pull_ups,Weighted Pull-Ups,1,3,0.0,warmup ladder,,2025-11
+2026-01-22,weighted_pull_ups,Weighted Pull-Ups,1,3,10.0,warmup ladder,,2025-11
+2026-01-22,weighted_pull_ups,Weighted Pull-Ups,1,3,15.0,warmup ladder,,2025-11
+2026-01-22,weighted_pull_ups,Weighted Pull-Ups,1,3,20.0,warmup ladder,,2025-11
+2026-01-22,weighted_pull_ups,Weighted Pull-Ups,1,3,25.0,warmup ladder,,2025-11
+2026-01-24,cable_rotation,Cable Rotation,2,12,30.0,,,2025-11
+2026-01-24,calf_raise,Calf Raise,3,15,70.0,"stay, work on control",,2025-11
+2026-01-24,hip_abduction,Hip Abduction,3,15,85.0,hard,,2025-11
+2026-01-24,hip_adduction,Hip Adduction,3,15,85.0,,,2025-11
+2026-01-24,hip_thrust,Hip Thrust,3,12,215.0,"on 12"" box. go 225",,2025-11
+2026-01-24,trap_bar_deadlift,Trap Bar Deadlift,3,5,300.0,go 310,,2025-11
+2026-01-26,barbell_bench_press,Barbell Bench Press,3,5,180.0,try 6 if feeling strong,,2025-11
+2026-01-26,db_incline_press,Dumbbell Incline Press,3,10,55.0,,,2025-11
+2026-01-26,db_incline_press,Dumbbell Incline Press,3,8,60.0,,,2025-11
+2026-01-26,hammer_curl,Hammer Curl,2,12,30.0,so hard not too bad v hard,,2025-11
+2026-01-26,overhead_triceps_extension,Overhead Triceps Extension,3,15,37.5,good hard,,2025-11
+2026-01-26,pallof_press,Pallof Press,3,12,35.0,try 40 brace core,,2025-11
+2026-01-26,rear_delt_fly,Rear Delt Fly,3,18,10.0,plenty hard. control.,,2025-11
+2026-01-26,row,Row,3,10,160.0,go 165,,2025-11
+2026-01-27,back_squat,Back Squat,3,5,215.0,"fine, go 225. keep it narrower, feet barely out, brace and sit back",,2025-11
+2026-01-27,bulgarian_split_squat,Bulgarian Split Squat,2,10,30.0,go x11,,2025-11
+2026-01-27,calf_raise,Calf Raise,3,20,0.0,"fine, up",,2025-11
+2026-01-27,hanging_leg_raise,Hanging Leg Raise,3,8,0.0,hanging. alternate hanging and on forearms squeeze scaps,,2025-11
+2026-01-27,rdl,Romanian Deadlift,3,8,190.0,,,2025-11
+2026-01-30,cable_rotation,Cable Rotation,3,12,35.0,stay,,2025-11
+2026-01-30,calf_raise,Calf Raise,3,12,80.0,go x14,,2025-11
+2026-01-30,db_flat_bench,DB Flat Bench,3,12,60.0,stay nope: 12 12 9,,2025-11
+2026-01-30,dips,Dips,3,15,0.0,nope: 15 15 13,,2025-11
+2026-01-30,glute_kickback,Glute Kickback,3,12,110.0,go 120,,2025-11
+2026-01-30,hip_abduction,Hip Abduction,3,18,85.0,,,2025-11
+2026-01-30,hip_adduction,Hip Adduction,3,18,85.0,,,2025-11
+2026-01-30,hip_thrust,Hip Thrust,3,10,225.0,go 235. inhale exhale brace,,2025-11
+2026-01-30,incline_db_curl,Incline DB Curl,3,10,30.0,"stay, feet up nope: 10 10 9",,2025-11
+2026-01-30,straight_arm_pulldown,Straight Arm Pulldown,3,15,50.0,"go up, control throughout v hard.  control tension, squeeze scaps",,2025-11
+2026-01-30,trap_bar_deadlift,Trap Bar Deadlift,3,5,295.0,going a little easy for right trap tinge and poor sleep,,2025-11
+2026-01-30,triceps_pushdown,Triceps Pushdown,3,12,40.0,up reps ok,,2025-11
+2026-01-30,weighted_pull_ups,Weighted Pull-Ups,3,7,0.0,nope: 776,,2025-11
+2026-01-31,barbell_bench_press,Barbell Bench Press,3,5,180.0,,,2025-11
+2026-01-31,db_incline_press,Dumbbell Incline Press,3,8,60.0,feet up push thru body,,2025-11
+2026-01-31,lateral_raise,Lateral Raise,3,18,12.0,,,2025-11
+2026-01-31,overhead_triceps_extension,Overhead Triceps Extension,3,15,37.5,good hard up either,,2025-11
+2026-01-31,pallof_press,Pallof Press,2,12,40.0,,,2025-11
+2026-02-02,back_squat,Back Squat,3,5,225.0,"15""+25# box good. go 235 if feeling good",,2025-11
+2026-02-02,calf_raise,Calf Raise,3,8,0.0,single leg go 10,,2025-11
+2026-02-02,hanging_leg_raise,Hanging Leg Raise,3,10,0.0,some clicking even squeezing scaps,,2025-11
+2026-02-02,leg_press,Leg Press,3,12,270.0,"don't chase depth, 45deg. go x15",,2025-11
+2026-02-02,rdl,Romanian Deadlift,3,8,195.0,go up. keep knees back,,2025-11
+2026-02-03,db_flat_bench,DB Flat Bench,3,12,60.0,nope 12 12 11,,2025-11
+2026-02-03,dips,Dips,3,8,25.0,,weight_drop:95→25,2025-11
+2026-02-03,face_pull,Face Pull,3,12,40.0,"feels good with scap squeeze. scaps down, everything else up",,2025-11
+2026-02-03,straight_arm_pulldown,Straight Arm Pulldown,3,15,50.0,"go up, control throughout v hard.  control tension, squeeze scaps go up",,2025-11
+2026-02-03,weighted_pull_ups,Weighted Pull-Ups,3,7,0.0,hard,,2025-11
+2026-02-05,cable_rotation,Cable Rotation,3,12,35.0,stay,,2025-11
+2026-02-05,hip_thrust,Hip Thrust,3,10,235.0,,,2025-11
+2026-02-05,seated_hamstring_curl,Seated Hamstring Curl,3,12,105.0,"feet: 3, back: 1.5 good. go 110",,2025-11
+2026-02-05,trap_bar_deadlift,Trap Bar Deadlift,1,5,335.0,5rm test: 335. prob had more,,2025-11
+2026-02-06,barbell_bench_press,Barbell Bench Press,3,6,180.0,ok. try 185,,2025-11
+2026-02-06,db_incline_press,Dumbbell Incline Press,3,10,60.0,go 12. lots available thru feet,,2025-11
+2026-02-06,hammer_curl,Hammer Curl,3,12,30.0,try 35,,2025-11
+2026-02-06,overhead_triceps_extension,Overhead Triceps Extension,3,15,40.0,go up,,2025-11
+2026-02-06,pallof_press,Pallof Press,2,12,40.0,,,2025-11
+2026-02-06,rear_delt_fly,Rear Delt Fly,3,12,12.5,,,2025-11
+2026-02-06,row,Row,3,10,165.0,go 170,,2025-11
+2026-02-08,box_jumps,Box Jumps,3,4,0.0,"18"" 3x4. feel fast",,2026-02
+2026-02-08,db_incline_press,Dumbbell Incline Press,3,10,60.0,60 3x10,,2026-02
+2026-02-08,seated_hamstring_curl,Seated Hamstring Curl,3,12,110.0,"110 3x12, go 115",,2026-02
+2026-02-08,weighted_pull_ups,Weighted Pull-Ups,3,7,0.0,3x7,,2026-02
+2026-02-11,barbell_bench_press,Barbell Bench Press,3,5,185.0,185 3x5 ok,,2026-02
+2026-02-11,glute_kickback,Glute Kickback,2,12,120.0,120 2x12 good. height 4. feel glute to hamstring on push,,2026-02
+2026-02-11,incline_db_curl,Incline DB Curl,3,10,30.0,30 3x10,,2026-02
+2026-02-11,rdl,Romanian Deadlift,3,10,185.0,185 3x10,,2026-02
+2026-02-11,row,Row,3,10,170.0,170 3x10 stay,,2026-02
+2026-02-11,straight_arm_pulldown,Straight Arm Pulldown,3,15,55.0,55 3x15,,2026-02

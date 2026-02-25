@@ -438,4 +438,33 @@ if (length(flagged_lifts) > 0) {
   message("No flagged entries — chart6 skipped.")
 }
 
+# ---------------------------------------------------------------------------
+# Chart 7: Weekly sets by muscle group (stacked bar)
+# ---------------------------------------------------------------------------
+weekly_sets <- df %>%
+  mutate(
+    week  = floor_date(date, "week", week_start = 1),
+    group = coalesce(group_map[lift_id], "Other")
+  ) %>%
+  filter(group != "Other") %>%
+  group_by(week, group) %>%
+  summarise(total_sets = sum(sets, na.rm = TRUE), .groups = "drop") %>%
+  mutate(group = factor(group, levels = group_levels))
+
+p7 <- ggplot(weekly_sets, aes(x = week, y = total_sets, fill = group)) +
+  geom_col(position = "stack", width = 6) +
+  scale_fill_manual(values = group_colors) +
+  scale_x_date(date_breaks = "2 months", date_labels = "%b '%y") +
+  scale_y_continuous(breaks = pretty_breaks()) +
+  labs(
+    title = "Weekly Sets by Muscle Group",
+    x = NULL, y = "Total Sets", fill = NULL
+  ) +
+  theme_lift +
+  guides(fill = guide_legend(nrow = 1))
+
+ggsave(file.path(out_dir, "chart7_weekly_sets.png"), p7,
+       width = 12, height = 6, dpi = 150)
+message("Saved chart7_weekly_sets.png")
+
 message("\nAll charts saved to: ", out_dir)

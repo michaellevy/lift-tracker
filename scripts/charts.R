@@ -120,15 +120,12 @@ max_weight_per_session <- qualifying %>%
 # ---------------------------------------------------------------------------
 # Shared theme
 # ---------------------------------------------------------------------------
-theme_lift <- theme_minimal(base_size = 11) +
+theme_lift <- theme_bw(base_size = 11) +
   theme(
     plot.title       = element_text(face = "bold", size = 14, margin = margin(b = 4)),
     plot.subtitle    = element_text(size = 9.5, color = "gray45", margin = margin(b = 8)),
     strip.text       = element_text(face = "bold", size = 9),
     panel.grid.minor = element_blank(),
-    panel.grid.major = element_line(color = "gray92"),
-    axis.text        = element_text(size = 8.5, color = "gray40"),
-    axis.title.y     = element_text(size = 9.5, color = "gray30"),
     legend.position  = "bottom",
     legend.text      = element_text(size = 9),
     plot.margin      = margin(12, 14, 8, 12)
@@ -374,7 +371,7 @@ p5 <- ggplot(workout_days, aes(x = week_of_month, y = fct_rev(dow))) +
   facet_grid(year ~ month) +
   scale_x_continuous(breaks = 1:5, labels = paste0("W", 1:5)) +
   labs(title = "Workout Days", x = NULL, y = NULL) +
-  theme_minimal(base_size = 9) +
+  theme_bw(base_size = 9) +
   theme(
     panel.grid   = element_blank(),
     axis.text.x  = element_text(size = 7, color = "gray50"),

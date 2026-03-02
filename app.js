@@ -25,6 +25,10 @@ let currentRx = null;
 let todayEntries = new Set();
 const useSessionMode = typeof SESSIONS !== 'undefined' && SESSIONS.length > 0;
 
+// In-memory cache: liftId -> [{id, data}]
+const historyCache = new Map();
+const historyRefreshSpinner = document.getElementById('history-refresh-spinner');
+
 // --- Auth ---
 authBtn.addEventListener('click', () => {
   if (currentUser) {
@@ -415,6 +419,7 @@ saveBtn.addEventListener('click', async () => {
     }
 
     resetSetGroups();
+    historyCache.delete(currentLiftId);
     await loadHistory(currentLiftId);
 
     // Fallback: if no history, pre-fill sets/reps from rx
@@ -439,71 +444,104 @@ saveBtn.addEventListener('click', async () => {
 async function loadHistory(liftId) {
   if (!currentUser) return;
 
-  historyList.innerHTML = '<p class="loading">Loading...</p>';
+  const cached = historyCache.get(liftId);
+  if (cached) {
+    // Serve from cache instantly, then silently refresh in the background
+    renderHistoryEntries(liftId, cached, { prefillForm: true });
+    refreshHistoryInBackground(liftId);
+    return;
+  }
 
+  // No cache: show loading indicator and fetch
+  historyList.innerHTML = '<p class="loading"><span class="spinner"></span>Loading…</p>';
   try {
-    const snapshot = await db.collection('users').doc(currentUser.uid)
-      .collection('entries')
-      .where('lift', '==', liftId)
-      .orderBy('date', 'desc')
-      .limit(5)
-      .get();
-
-    if (snapshot.empty) {
-      historyList.innerHTML = '<p class="empty">No history yet.</p>';
-      return;
-    }
-
-    historyList.innerHTML = '';
-    let lastSets = null;
-
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-      const entry = document.createElement('div');
-      entry.className = 'history-entry';
-
-      const date = data.date ? data.date.toDate() : new Date();
-      const dateStr = date.toLocaleDateString('en-US', {
-        month: 'short', day: 'numeric', year: 'numeric'
-      });
-
-      const setsStr = data.sets.map((g) => `${g.sets}\u00d7${g.reps}@${g.weight}`).join(', ');
-
-      // Grab most recent entry for auto-fill
-      if (lastSets === null) {
-        lastSets = data.sets;
-      }
-
-      entry.innerHTML = `
-        <div class="history-header">
-          <div class="history-date">${dateStr}</div>
-          <div class="history-actions">
-            <button class="btn-edit-entry" type="button">Edit</button>
-            <button class="btn-delete-entry" type="button">Delete</button>
-          </div>
-        </div>
-        <div class="history-sets">${setsStr}</div>
-        ${data.notes ? `<div class="history-notes">${escapeHtml(data.notes)}</div>` : ''}
-      `;
-      entry.querySelector('.btn-edit-entry').addEventListener('click', () => startEdit(doc.id, data));
-      entry.querySelector('.btn-delete-entry').addEventListener('click', () => deleteEntry(doc.id, liftId));
-      historyList.appendChild(entry);
-    });
-
-    // Pre-fill form from most recent entry (sets, reps, and weight)
-    if (lastSets !== null) {
-      setGroups.innerHTML = '';
-      lastSets.forEach((g) => {
-        const row = createSetGroupRow();
-        row.querySelector('.input-sets').value = g.sets;
-        row.querySelector('.input-reps').value = g.reps;
-        row.querySelector('.input-weight').value = g.weight;
-        setGroups.appendChild(row);
-      });
-    }
+    const entries = await fetchHistoryFromFirestore(liftId);
+    historyCache.set(liftId, entries);
+    renderHistoryEntries(liftId, entries, { prefillForm: true });
   } catch (err) {
     console.error('History load error:', err);
     historyList.innerHTML = '<p class="empty">Failed to load history.</p>';
+  }
+}
+
+async function refreshHistoryInBackground(liftId) {
+  historyRefreshSpinner.classList.remove('hidden');
+  try {
+    const entries = await fetchHistoryFromFirestore(liftId);
+    historyCache.set(liftId, entries);
+    // Only re-render if the user hasn't switched to a different lift
+    if (currentLiftId === liftId) {
+      renderHistoryEntries(liftId, entries, { prefillForm: false });
+    }
+  } catch (err) {
+    console.error('Background history refresh error:', err);
+  } finally {
+    historyRefreshSpinner.classList.add('hidden');
+  }
+}
+
+async function fetchHistoryFromFirestore(liftId) {
+  const snapshot = await db.collection('users').doc(currentUser.uid)
+    .collection('entries')
+    .where('lift', '==', liftId)
+    .orderBy('date', 'desc')
+    .limit(5)
+    .get();
+  const entries = [];
+  snapshot.forEach((doc) => entries.push({ id: doc.id, data: doc.data() }));
+  return entries;
+}
+
+function renderHistoryEntries(liftId, entries, { prefillForm = true } = {}) {
+  if (entries.length === 0) {
+    historyList.innerHTML = '<p class="empty">No history yet.</p>';
+    return;
+  }
+
+  historyList.innerHTML = '';
+  let lastSets = null;
+
+  entries.forEach(({ id: docId, data }) => {
+    const entry = document.createElement('div');
+    entry.className = 'history-entry';
+
+    const date = data.date ? data.date.toDate() : new Date();
+    const dateStr = date.toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric'
+    });
+
+    const setsStr = data.sets.map((g) => `${g.sets}\u00d7${g.reps}@${g.weight}`).join(', ');
+
+    if (lastSets === null) {
+      lastSets = data.sets;
+    }
+
+    entry.innerHTML = `
+      <div class="history-header">
+        <div class="history-date">${dateStr}</div>
+        <div class="history-actions">
+          <button class="btn-edit-entry" type="button">Edit</button>
+          <button class="btn-delete-entry" type="button">Delete</button>
+        </div>
+      </div>
+      <div class="history-sets">${setsStr}</div>
+      ${data.notes ? `<div class="history-notes">${escapeHtml(data.notes)}</div>` : ''}
+    `;
+    entry.querySelector('.btn-edit-entry').addEventListener('click', () => startEdit(docId, data));
+    entry.querySelector('.btn-delete-entry').addEventListener('click', () => deleteEntry(docId, liftId));
+    historyList.appendChild(entry);
+  });
+
+  // Pre-fill form from most recent entry only on initial load (not background refresh)
+  if (prefillForm && lastSets !== null) {
+    setGroups.innerHTML = '';
+    lastSets.forEach((g) => {
+      const row = createSetGroupRow();
+      row.querySelector('.input-sets').value = g.sets;
+      row.querySelector('.input-reps').value = g.reps;
+      row.querySelector('.input-weight').value = g.weight;
+      setGroups.appendChild(row);
+    });
   }
 }
 
@@ -533,6 +571,7 @@ cancelEditBtn.addEventListener('click', async () => {
   cancelEditBtn.classList.add('hidden');
   document.getElementById('edit-mode-banner').classList.add('hidden');
   resetSetGroups();
+  historyCache.delete(currentLiftId);
   await loadHistory(currentLiftId);
   // Fallback: if no history, pre-fill sets/reps from rx
   const firstRow = setGroups.querySelector('.set-group-row');
@@ -553,6 +592,7 @@ async function deleteEntry(docId, liftId) {
     await db.collection('users').doc(currentUser.uid)
       .collection('entries').doc(docId).delete();
 
+    historyCache.delete(liftId);
     await loadHistory(liftId);
     await loadTodayEntries();
     if (useSessionMode) {
@@ -593,6 +633,7 @@ function resetAll() {
   setGroups.innerHTML = '';
   notesInput.value = '';
   if (liftSelect) liftSelect.value = '';
+  historyCache.clear();
 }
 
 function escapeHtml(str) {

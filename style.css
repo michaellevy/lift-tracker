@@ -184,7 +184,46 @@ body.view-only .btn-delete-entry {
   font-style: italic;
 }
 
-.loading, .empty {
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Inline spinner used inside the "Loading…" paragraph */
+.spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Small spinner shown next to "Recent History" heading during background refresh */
+.history-refresh-spinner {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid var(--border);
+  border-top-color: var(--text-muted);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  opacity: 0.7;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.empty {
   color: var(--text-muted);
   font-size: 0.9rem;
 }

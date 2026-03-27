@@ -54,7 +54,6 @@ const SESSIONS = [
     lifts: [
       { liftId: "trap_bar_deadlift", rx: "3 x 5" },
       { liftId: "seated_hamstring_curl", rx: "2-3 x 10-15" },
-      { liftId: "weighted_pull_ups", rx: "4-5 x 4-8" },
       { liftId: "db_flat_bench", rx: "3-4 x 8-12" },
       {
         choose: [
@@ -70,6 +69,7 @@ const SESSIONS = [
     id: "session_c",
     name: "Session C",
     lifts: [
+      { liftId: "weighted_pull_ups", rx: "4-5 x 4-8" },
       { liftId: "dips", rx: "3-4 x 6-10" },
       { liftId: "straight_arm_pulldown", rx: "3 x 12-15" },
       { liftId: "lateral_raise", rx: "3 x 12-15" },

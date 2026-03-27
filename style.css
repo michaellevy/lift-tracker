@@ -407,6 +407,10 @@ textarea {
   opacity: 0.55;
 }
 
+.session-lift.inactive {
+  opacity: 0.35;
+}
+
 .session-lift .lift-name {
   flex: 1;
   font-size: 1rem;

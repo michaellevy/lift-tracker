@@ -23,6 +23,7 @@ let currentSessionIndex = 0;
 let currentLiftId = null;
 let currentRx = null;
 let todayEntries = new Set();
+let currentActiveChoices = new Map();
 const useSessionMode = typeof SESSIONS !== 'undefined' && SESSIONS.length > 0;
 
 // In-memory cache: liftId -> [{id, data}]
@@ -174,7 +175,8 @@ async function loadSession(index) {
   currentRx = null;
   liftDetail.classList.add('hidden');
   await loadTodayEntries();
-  renderSessionOverview(SESSIONS[index]);
+  currentActiveChoices = await resolveChoiceGroups(SESSIONS[index]);
+  renderSessionOverview(SESSIONS[index], currentActiveChoices);
   sessionOverview.classList.remove('hidden');
 }
 
@@ -196,9 +198,76 @@ async function loadTodayEntries() {
   }
 }
 
-function renderSessionOverview(session) {
-  sessionOverview.innerHTML = '';
+async function resolveChoiceGroups(session) {
+  const resolved = new Map();
+  if (!currentUser) return resolved;
 
+  let choiceIndex = 0;
+  for (const item of session.lifts) {
+    if (!item.choose) continue;
+
+    const liftIds = item.choose.map((c) => c.liftId);
+
+    try {
+      if (item.note && item.note.includes('4-week rotation')) {
+        // Do one for 4 sessions, then switch
+        const snapshot = await db.collection('users').doc(currentUser.uid)
+          .collection('entries')
+          .where('session', '==', session.id)
+          .where('lift', 'in', liftIds)
+          .orderBy('date', 'desc')
+          .limit(8)
+          .get();
+
+        if (snapshot.empty) {
+          resolved.set(choiceIndex, liftIds[0]);
+        } else {
+          const entries = [];
+          snapshot.forEach((doc) => entries.push(doc.data()));
+          const mostRecentLift = entries[0].lift;
+          let consecutiveCount = 0;
+          for (const entry of entries) {
+            if (entry.lift === mostRecentLift) consecutiveCount++;
+            else break;
+          }
+          resolved.set(choiceIndex,
+            consecutiveCount >= 4
+              ? liftIds.find((id) => id !== mostRecentLift)
+              : mostRecentLift
+          );
+        }
+      } else {
+        // Alternate: gray out the one most recently done
+        const snapshot = await db.collection('users').doc(currentUser.uid)
+          .collection('entries')
+          .where('session', '==', session.id)
+          .where('lift', 'in', liftIds)
+          .orderBy('date', 'desc')
+          .limit(1)
+          .get();
+
+        if (snapshot.empty) {
+          resolved.set(choiceIndex, liftIds[0]);
+        } else {
+          const lastDone = snapshot.docs[0].data().lift;
+          resolved.set(choiceIndex, liftIds.find((id) => id !== lastDone));
+        }
+      }
+    } catch (err) {
+      console.error('Error resolving choice group:', err);
+      resolved.set(choiceIndex, liftIds[0]);
+    }
+
+    choiceIndex++;
+  }
+  return resolved;
+}
+
+function renderSessionOverview(session, activeChoices) {
+  sessionOverview.innerHTML = '';
+  activeChoices = activeChoices || new Map();
+
+  let choiceIndex = 0;
   session.lifts.forEach((item) => {
     if (item.choose) {
       const group = document.createElement('div');
@@ -209,25 +278,28 @@ function renderSessionOverview(session) {
       label.textContent = item.note ? `pick one \u2014 ${item.note}` : 'pick one';
       group.appendChild(label);
 
+      const activeLift = activeChoices.get(choiceIndex);
       item.choose.forEach((choice) => {
         const lift = LIFTS.find((l) => l.id === choice.liftId);
         if (!lift) return;
-        group.appendChild(createOverviewRow(lift, choice.rx, choice.liftId));
+        const inactive = activeLift && choice.liftId !== activeLift;
+        group.appendChild(createOverviewRow(lift, choice.rx, choice.liftId, inactive));
       });
 
+      choiceIndex++;
       sessionOverview.appendChild(group);
     } else {
       const lift = LIFTS.find((l) => l.id === item.liftId);
       if (!lift) return;
-      sessionOverview.appendChild(createOverviewRow(lift, item.rx, item.liftId));
+      sessionOverview.appendChild(createOverviewRow(lift, item.rx, item.liftId, false));
     }
   });
 }
 
-function createOverviewRow(lift, rx, liftId) {
+function createOverviewRow(lift, rx, liftId, inactive) {
   const row = document.createElement('div');
   const done = todayEntries.has(liftId);
-  row.className = 'session-lift' + (done ? ' completed' : '');
+  row.className = 'session-lift' + (done ? ' completed' : '') + (inactive ? ' inactive' : '');
   row.dataset.liftId = liftId;
 
   row.innerHTML = `
@@ -410,7 +482,8 @@ saveBtn.addEventListener('click', async () => {
       todayEntries.add(currentLiftId);
 
       if (useSessionMode) {
-        renderSessionOverview(SESSIONS[currentSessionIndex]);
+        currentActiveChoices = await resolveChoiceGroups(SESSIONS[currentSessionIndex]);
+        renderSessionOverview(SESSIONS[currentSessionIndex], currentActiveChoices);
         // Re-highlight current lift
         document.querySelectorAll('.session-lift').forEach((el) => {
           el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
@@ -596,7 +669,8 @@ async function deleteEntry(docId, liftId) {
     await loadHistory(liftId);
     await loadTodayEntries();
     if (useSessionMode) {
-      renderSessionOverview(SESSIONS[currentSessionIndex]);
+      currentActiveChoices = await resolveChoiceGroups(SESSIONS[currentSessionIndex]);
+      renderSessionOverview(SESSIONS[currentSessionIndex], currentActiveChoices);
       document.querySelectorAll('.session-lift').forEach((el) => {
         el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
       });

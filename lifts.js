@@ -17,8 +17,8 @@ const LIFTS = [
   { id: "overhead_triceps_extension", name: "Overhead Triceps Extension", cues: "Control stretch." },
   { id: "hammer_curl", name: "Hammer Curl", cues: "Neutral grip. No torso sway." },
   { id: "dips", name: "Dips", cues: "Stop shy of deep shoulder stretch. Add weight slowly." },
-  { id: "straight_arm_pulldown", name: "Straight Arm Pulldown", cues: "Minimal elbow bend." },
-  { id: "lateral_raise", name: "Lateral Raise", cues: "Soft elbows. Avoid shrugging. Arms 15\u00b0 forward; pull out not up." },
+  { id: "lateral_raise_heavy", name: "Lateral Raise (Heavy)", cues: "3x8-10. Controlled but some body english OK. Arms 15\u00b0 forward; pull out not up. Focus on mechanical tension." },
+  { id: "lateral_raise", name: "Lateral Raise (Light)", cues: "3x12-15. Strict form, slow eccentric, pause at top. Arms 15\u00b0 forward; pull out not up. No shrugging." },
   { id: "hip_abduction", name: "Hip Abduction", cues: "Slight forward lean. Controlled reps." },
   { id: "glute_kickback", name: "Glute Kickback", cues: "Height 4. Feel glute to hamstring on push. No lumbar extension." },
   { id: "pallof_press", name: "Pallof Press", cues: "Anti-rotation focus. Neutral pelvis." },
@@ -46,6 +46,7 @@ const SESSIONS = [
       { liftId: "row", rx: "3-4 x 8-12" },
       { liftId: "triceps_pushdown", rx: "2-4 x 10-15" },
       { liftId: "incline_db_curl", rx: "2-4 x 10-15" },
+      { liftId: "lateral_raise_heavy", rx: "3 x 8-10" },
     ]
   },
   {
@@ -63,6 +64,7 @@ const SESSIONS = [
       },
       { liftId: "overhead_triceps_extension", rx: "2-3 x 10-15" },
       { liftId: "hammer_curl", rx: "2-3 x 10-15" },
+      { liftId: "lateral_raise", rx: "3 x 12-15" },
     ]
   },
   {
@@ -71,7 +73,6 @@ const SESSIONS = [
     lifts: [
       { liftId: "weighted_pull_ups", rx: "4-5 x 4-8" },
       { liftId: "dips", rx: "3-4 x 6-10" },
-      { liftId: "straight_arm_pulldown", rx: "3 x 12-15" },
       { liftId: "lateral_raise", rx: "3 x 12-15" },
       { liftId: "hip_abduction", rx: "2-3 x 12-20" },
       { liftId: "glute_kickback", rx: "2-3 x 12-15" },

@@ -36,8 +36,8 @@ current_lifts <- c(
   "barbell_bench_press", "trap_bar_deadlift", "row", "weighted_pull_ups",
   "db_incline_press", "dips", "rdl", "seated_hamstring_curl",
   "triceps_pushdown", "incline_db_curl", "face_pull", "rear_delt_fly",
-  "lateral_raise", "hammer_curl", "overhead_triceps_extension",
-  "straight_arm_pulldown", "glute_kickback", "hip_abduction",
+  "lateral_raise", "lateral_raise_heavy", "hammer_curl", "overhead_triceps_extension",
+  "glute_kickback", "hip_abduction",
   "leg_press", "box_jumps", "pallof_press", "cable_rotation", "db_flat_bench"
 )
 
@@ -45,7 +45,7 @@ historical_lifts <- c(
   "back_squat", "deadlift", "strict_press", "front_squat",
   "hip_thrust", "bulgarian_split_squat", "lat_pulldown",
   "calf_raise", "hanging_leg_raise", "leg_extension", "hip_adduction",
-  "walking_lunge", "step_ups"
+  "walking_lunge", "step_ups", "straight_arm_pulldown"
 )
 
 all_featured <- c(current_lifts, historical_lifts)
@@ -63,7 +63,8 @@ lift_labels <- c(
   incline_db_curl            = "Incline DB Curl",
   face_pull                  = "Face Pull",
   rear_delt_fly              = "Rear Delt Fly",
-  lateral_raise              = "Lateral Raise",
+  lateral_raise              = "Lateral Raise (Light)",
+  lateral_raise_heavy        = "Lateral Raise (Heavy)",
   hammer_curl                = "Hammer Curl",
   overhead_triceps_extension = "OH Triceps Ext",
   straight_arm_pulldown      = "Straight-Arm Pulldown",
@@ -300,7 +301,7 @@ group_map <- c(
   back_squat = "Squat", leg_press = "Squat", bulgarian_split_squat = "Squat",
   seated_hamstring_curl = "Accessory", triceps_pushdown = "Accessory",
   incline_db_curl = "Accessory", hammer_curl = "Accessory",
-  overhead_triceps_extension = "Accessory", lateral_raise = "Accessory",
+  overhead_triceps_extension = "Accessory", lateral_raise = "Accessory", lateral_raise_heavy = "Accessory",
   glute_kickback = "Accessory", hip_abduction = "Accessory",
   calf_raise = "Accessory", leg_extension = "Accessory",
   hip_adduction = "Accessory"

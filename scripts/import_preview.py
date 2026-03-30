@@ -153,6 +153,8 @@ LIFT_MAP = {
     "lateral raise":                    "lateral_raise",
     "lateral raise (machine or cable)": "lateral_raise",
     "lateral raises":                   "lateral_raise",
+    "lateral raise (heavy)":            "lateral_raise_heavy",
+    "lateral raise heavy":              "lateral_raise_heavy",
     "hip abduction":                    "hip_abduction",
     "hip ad push out":                  "hip_abduction",
     "glute kickback":                   "glute_kickback",
@@ -221,8 +223,8 @@ CURRENT_LIFT_NAMES = {
     "overhead_triceps_extension": "Overhead Triceps Extension",
     "hammer_curl": "Hammer Curl",
     "dips": "Dips",
-    "straight_arm_pulldown": "Straight Arm Pulldown",
-    "lateral_raise": "Lateral Raise",
+    "lateral_raise": "Lateral Raise (Light)",
+    "lateral_raise_heavy": "Lateral Raise (Heavy)",
     "hip_abduction": "Hip Abduction",
     "glute_kickback": "Glute Kickback",
     "pallof_press": "Pallof Press",
@@ -246,6 +248,7 @@ HISTORICAL_LIFT_NAMES = {
     "hanging_leg_raise": "Hanging Leg Raise",
     "hip_adduction": "Hip Adduction",
     "leg_extension": "Leg Extension",
+    "straight_arm_pulldown": "Straight Arm Pulldown",
 }
 
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lift-tracker-v4';
+const CACHE_NAME = 'lift-tracker-v5';
 const STATIC_ASSETS = [
   './',
   './index.html',

@@ -178,6 +178,7 @@ async function loadSession(index) {
   currentActiveChoices = await resolveChoiceGroups(SESSIONS[index]);
   renderSessionOverview(SESSIONS[index], currentActiveChoices);
   sessionOverview.classList.remove('hidden');
+  prewarmSessionHistory(SESSIONS[index]);
 }
 
 async function loadTodayEntries() {
@@ -427,7 +428,7 @@ addGroupBtn.addEventListener('click', () => {
 });
 
 // --- Save ---
-saveBtn.addEventListener('click', async () => {
+saveBtn.addEventListener('click', () => {
   if (!currentUser || !currentLiftId) return;
 
   const groups = [];
@@ -450,68 +451,122 @@ saveBtn.addEventListener('click', async () => {
     return;
   }
 
-  saveBtn.disabled = true;
-  saveBtn.textContent = editingEntryId ? 'Updating...' : 'Saving...';
+  const notes = notesInput.value.trim();
+  const savedLiftId = currentLiftId;
 
-  try {
-    if (editingEntryId) {
-      await db.collection('users').doc(currentUser.uid)
-        .collection('entries').doc(editingEntryId)
-        .update({ sets: groups, notes: notesInput.value.trim() });
-
-      editingEntryId = null;
-      cancelEditBtn.classList.add('hidden');
-      document.getElementById('edit-mode-banner').classList.add('hidden');
-    } else {
-      const entry = {
-        lift: currentLiftId,
-        date: firebase.firestore.FieldValue.serverTimestamp(),
-        sets: groups,
-        notes: notesInput.value.trim()
-      };
-
-      // Tag with session ID for auto-rotate
-      if (useSessionMode) {
-        entry.session = SESSIONS[currentSessionIndex].id;
+  if (editingEntryId) {
+    // Optimistic: update cache in place
+    const cached = historyCache.get(savedLiftId);
+    if (cached) {
+      const idx = cached.findIndex((e) => e.id === editingEntryId);
+      if (idx !== -1) {
+        cached[idx] = { id: editingEntryId, data: { ...cached[idx].data, sets: groups, notes } };
+        renderHistoryEntries(savedLiftId, cached, { prefillForm: false });
       }
+    }
 
-      await db.collection('users').doc(currentUser.uid)
-        .collection('entries').add(entry);
+    const docId = editingEntryId;
+    editingEntryId = null;
+    cancelEditBtn.classList.add('hidden');
+    document.getElementById('edit-mode-banner').classList.add('hidden');
+    resetSetGroups();
+    saveBtn.textContent = 'Save';
 
-      // Update completion status
-      todayEntries.add(currentLiftId);
+    // Fire-and-forget write, then reconcile
+    db.collection('users').doc(currentUser.uid)
+      .collection('entries').doc(docId)
+      .update({ sets: groups, notes })
+      .then(() => refreshHistoryInBackground(savedLiftId))
+      .catch((err) => {
+        console.error('Save error:', err);
+        alert('Update may not have saved — check your connection.');
+        historyCache.delete(savedLiftId);
+        if (currentLiftId === savedLiftId) loadHistory(savedLiftId);
+      });
+  } else {
+    const entry = {
+      lift: savedLiftId,
+      date: firebase.firestore.FieldValue.serverTimestamp(),
+      sets: groups,
+      notes
+    };
+    if (useSessionMode) {
+      entry.session = SESSIONS[currentSessionIndex].id;
+    }
 
-      if (useSessionMode) {
-        currentActiveChoices = await resolveChoiceGroups(SESSIONS[currentSessionIndex]);
-        renderSessionOverview(SESSIONS[currentSessionIndex], currentActiveChoices);
-        // Re-highlight current lift
-        document.querySelectorAll('.session-lift').forEach((el) => {
-          el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
-        });
-      }
+    // Optimistic: inject into cache and UI immediately
+    const optimisticEntry = {
+      id: '_pending',
+      data: { ...entry, date: { toDate: () => new Date() } }
+    };
+    const cached = historyCache.get(savedLiftId) || [];
+    historyCache.set(savedLiftId, [optimisticEntry, ...cached].slice(0, 5));
+    renderHistoryEntries(savedLiftId, historyCache.get(savedLiftId), { prefillForm: false });
+
+    todayEntries.add(savedLiftId);
+    if (useSessionMode) {
+      renderSessionOverview(SESSIONS[currentSessionIndex], currentActiveChoices);
+      document.querySelectorAll('.session-lift').forEach((el) => {
+        el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
+      });
     }
 
     resetSetGroups();
-    historyCache.delete(currentLiftId);
-    await loadHistory(currentLiftId);
 
-    // Fallback: if no history, pre-fill sets/reps from rx
-    const firstRow = setGroups.querySelector('.set-group-row');
-    if (firstRow && !firstRow.querySelector('.input-sets').value && currentRx) {
-      const parsed = parseRx(currentRx);
-      if (parsed) {
-        firstRow.querySelector('.input-sets').value = parsed.maxSets;
-        firstRow.querySelector('.input-reps').value = parsed.maxReps;
-      }
+    // Fire-and-forget write, then reconcile
+    db.collection('users').doc(currentUser.uid)
+      .collection('entries').add(entry)
+      .then(() => {
+        refreshHistoryInBackground(savedLiftId);
+        // Re-resolve choices in background (for pick-one rotation)
+        if (useSessionMode) {
+          resolveChoiceGroups(SESSIONS[currentSessionIndex]).then((choices) => {
+            currentActiveChoices = choices;
+            renderSessionOverview(SESSIONS[currentSessionIndex], currentActiveChoices);
+            document.querySelectorAll('.session-lift').forEach((el) => {
+              el.classList.toggle('selected', el.dataset.liftId === currentLiftId);
+            });
+          });
+        }
+      })
+      .catch((err) => {
+        console.error('Save error:', err);
+        alert('Entry may not have saved — check your connection.');
+        historyCache.delete(savedLiftId);
+        if (currentLiftId === savedLiftId) loadHistory(savedLiftId);
+      });
+  }
+
+  // Fallback: if no history, pre-fill sets/reps from rx
+  const firstRow = setGroups.querySelector('.set-group-row');
+  if (firstRow && !firstRow.querySelector('.input-sets').value && currentRx) {
+    const parsed = parseRx(currentRx);
+    if (parsed) {
+      firstRow.querySelector('.input-sets').value = parsed.maxSets;
+      firstRow.querySelector('.input-reps').value = parsed.maxReps;
     }
-  } catch (err) {
-    console.error('Save error:', err);
-    alert('Failed to save. Please try again.');
-  } finally {
-    saveBtn.disabled = false;
-    saveBtn.textContent = editingEntryId ? 'Update' : 'Save';
   }
 });
+
+// --- Pre-warm history cache for all lifts in a session ---
+function prewarmSessionHistory(session) {
+  if (!currentUser) return;
+  const liftIds = [];
+  session.lifts.forEach((item) => {
+    if (item.choose) {
+      item.choose.forEach((c) => liftIds.push(c.liftId));
+    } else {
+      liftIds.push(item.liftId);
+    }
+  });
+  liftIds.forEach((id) => {
+    if (!historyCache.has(id)) {
+      fetchHistoryFromFirestore(id)
+        .then((entries) => historyCache.set(id, entries))
+        .catch(() => {}); // swallow — just a pre-warm
+    }
+  });
+}
 
 // --- History ---
 async function loadHistory(liftId) {

@@ -16,6 +16,7 @@ const addGroupBtn = document.getElementById('add-group-btn');
 const notesInput = document.getElementById('notes');
 const saveBtn = document.getElementById('save-btn');
 const cancelEditBtn = document.getElementById('cancel-edit-btn');
+const browseAllBtn = document.getElementById('browse-all-btn');
 
 let currentUser = null;
 let editingEntryId = null;
@@ -66,6 +67,8 @@ async function initApp() {
   if (useSessionMode) {
     sessionSelector.classList.remove('hidden');
     dropdownMode.classList.add('hidden');
+    populateDropdown();
+    browseAllBtn.classList.remove('hidden');
     currentSessionIndex = await determineCurrentSession();
     renderSessionTabs();
     loadRecentSessions();
@@ -74,8 +77,18 @@ async function initApp() {
     sessionSelector.classList.add('hidden');
     sessionOverview.classList.add('hidden');
     dropdownMode.classList.remove('hidden');
+    browseAllBtn.classList.add('hidden');
     populateDropdown();
   }
+}
+
+// Toggle the all-lifts dropdown in session mode.
+if (browseAllBtn) {
+  browseAllBtn.addEventListener('click', () => {
+    const showing = !dropdownMode.classList.contains('hidden');
+    dropdownMode.classList.toggle('hidden', showing);
+    browseAllBtn.textContent = showing ? 'Browse all lifts' : 'Hide lift browser';
+  });
 }
 
 // --- Session mode ---

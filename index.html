@@ -30,13 +30,16 @@
     <!-- Session overview (shown when SESSIONS is configured) -->
     <section id="session-overview" class="session-overview hidden"></section>
 
-    <!-- Fallback: plain lift dropdown (shown when no SESSIONS) -->
+    <!-- Plain lift dropdown: fallback when no SESSIONS, or toggled via "Browse all lifts" -->
     <section id="dropdown-mode" class="lift-selector hidden">
       <label for="lift-select">Select Lift</label>
       <select id="lift-select">
         <option value="">— Choose a lift —</option>
       </select>
     </section>
+
+    <!-- Browse-all toggle (shown in session mode) -->
+    <button id="browse-all-btn" class="browse-all-btn hidden" type="button">Browse all lifts</button>
 
     <!-- Lift detail: cues, history, log form -->
     <div id="lift-detail" class="hidden">

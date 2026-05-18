@@ -223,49 +223,45 @@ async function resolveChoiceGroups(session) {
     const liftIds = item.choose.map((c) => c.liftId);
 
     try {
-      if (item.note && item.note.includes('4-week rotation')) {
-        // Do one for 4 sessions, then switch
-        const snapshot = await db.collection('users').doc(currentUser.uid)
+      // Per-lift queries (single equality + orderBy date) avoid needing a
+      // composite index for (session, lift, date). Filter by session client-side.
+      const perLiftLimit = item.note && item.note.includes('4-week rotation') ? 10 : 5;
+      const snaps = await Promise.all(liftIds.map((id) =>
+        db.collection('users').doc(currentUser.uid)
           .collection('entries')
-          .where('session', '==', session.id)
-          .where('lift', 'in', liftIds)
+          .where('lift', '==', id)
           .orderBy('date', 'desc')
-          .limit(8)
-          .get();
+          .limit(perLiftLimit)
+          .get()
+      ));
 
-        if (snapshot.empty) {
-          resolved.set(choiceIndex, liftIds[0]);
-        } else {
-          const entries = [];
-          snapshot.forEach((doc) => entries.push(doc.data()));
-          const mostRecentLift = entries[0].lift;
-          let consecutiveCount = 0;
-          for (const entry of entries) {
-            if (entry.lift === mostRecentLift) consecutiveCount++;
-            else break;
-          }
-          resolved.set(choiceIndex,
-            consecutiveCount >= 4
-              ? liftIds.find((id) => id !== mostRecentLift)
-              : mostRecentLift
-          );
+      const entries = [];
+      snaps.forEach((snap) => {
+        snap.forEach((doc) => {
+          const d = doc.data();
+          if (d.session !== session.id || !d.date) return;
+          entries.push({ lift: d.lift, ms: d.date.toMillis() });
+        });
+      });
+      entries.sort((a, b) => b.ms - a.ms);
+
+      if (entries.length === 0) {
+        resolved.set(choiceIndex, liftIds[0]);
+      } else if (item.note && item.note.includes('4-week rotation')) {
+        const mostRecentLift = entries[0].lift;
+        let consecutiveCount = 0;
+        for (const e of entries) {
+          if (e.lift === mostRecentLift) consecutiveCount++;
+          else break;
         }
+        resolved.set(choiceIndex,
+          consecutiveCount >= 4
+            ? liftIds.find((id) => id !== mostRecentLift)
+            : mostRecentLift
+        );
       } else {
-        // Alternate: gray out the one most recently done
-        const snapshot = await db.collection('users').doc(currentUser.uid)
-          .collection('entries')
-          .where('session', '==', session.id)
-          .where('lift', 'in', liftIds)
-          .orderBy('date', 'desc')
-          .limit(1)
-          .get();
-
-        if (snapshot.empty) {
-          resolved.set(choiceIndex, liftIds[0]);
-        } else {
-          const lastDone = snapshot.docs[0].data().lift;
-          resolved.set(choiceIndex, liftIds.find((id) => id !== lastDone));
-        }
+        const lastDone = entries[0].lift;
+        resolved.set(choiceIndex, liftIds.find((id) => id !== lastDone));
       }
     } catch (err) {
       console.error('Error resolving choice group:', err);

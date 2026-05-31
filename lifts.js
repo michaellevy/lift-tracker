@@ -8,7 +8,7 @@ const LIFTS = [
   { id: "triceps_pushdown", name: "Triceps Pushdown", cues: "Short rest. Full extension. Lock elbows." },
   { id: "bb_preacher_curl", name: "BB Preacher Curl", cues: "Strict, no shoulder swing. Control eccentric. Tricep flat on pad." },
   { id: "seated_hamstring_curl", name: "Seated Hamstring Curl", cues: "Controlled tempo. No hip shift." },
-  { id: "weighted_pull_ups", name: "Weighted Pull-Ups", cues: "Shoulder-width or neutral grip. Add weight gradually." },
+  { id: "weighted_pull_ups", name: "Weighted Pull-Ups", cues: "Standard pronated grip only — no grip rotation mid-block. Session B: BW for reps. Session C: heavy weighted, top sets first. Double-progress: stay at load until 4x5, then +5lb for 4x3." },
   { id: "db_flat_bench", name: "DB Flat Bench", cues: "Hypertrophy focus. Controlled tempo." },
   { id: "rear_delt_fly", name: "Rear Delt Fly", cues: "Scaps down." },
   { id: "face_pull", name: "Face Pull", cues: "Scaps down. Elbows high. External rotation emphasis." },
@@ -55,6 +55,7 @@ const SESSIONS = [
     lifts: [
       { liftId: "leg_press", rx: "2-3 x 8-10" },
       { liftId: "db_flat_bench", rx: "3-4 x 8-12" },
+      { liftId: "weighted_pull_ups", rx: "4 x 6-10 BW" },
       { liftId: "seated_hamstring_curl", rx: "2-3 x 10-15" },
       {
         choose: [
@@ -71,7 +72,7 @@ const SESSIONS = [
     id: "session_c",
     name: "Session C",
     lifts: [
-      { liftId: "weighted_pull_ups", rx: "4-5 x 4-8" },
+      { liftId: "weighted_pull_ups", rx: "4 x 4-5" },
       { liftId: "dips", rx: "3-4 x 6-10" },
       { liftId: "lateral_raise", rx: "3 x 12-15" },
       { liftId: "hip_abduction", rx: "2-3 x 12-20" },
